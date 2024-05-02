@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edu-Portal", "Edu-Portal\Edu-Portal.csproj", "{51E551DC-8E6E-4641-B300-5C1225197D2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE45EFF8-3357-43D4-B727-4489836A5DE4}"
+	ProjectSection(SolutionItems) = preProject
+		VisualStudio.gitignore = VisualStudio.gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51E551DC-8E6E-4641-B300-5C1225197D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E551DC-8E6E-4641-B300-5C1225197D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E551DC-8E6E-4641-B300-5C1225197D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E551DC-8E6E-4641-B300-5C1225197D2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B69066A5-C74B-4DC2-96F0-379986DC5C04}
+	EndGlobalSection
+EndGlobal
