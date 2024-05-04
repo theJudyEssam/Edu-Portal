@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edu-Portal", "Edu-Portal\Ed
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE45EFF8-3357-43D4-B727-4489836A5DE4}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		VisualStudio.gitignore = VisualStudio.gitignore
 	EndProjectSection
 EndProject
