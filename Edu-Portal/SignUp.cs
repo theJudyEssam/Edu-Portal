@@ -21,5 +21,10 @@ namespace Edu_Portal
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
