@@ -12,6 +12,12 @@ namespace Edu_Portal
 {
     public partial class SignUp : Form
     {
+        public string name;
+        public string password;
+
+        
+        public Profile profile;
+
         public SignUp()
         {
             InitializeComponent();
@@ -25,6 +31,113 @@ namespace Edu_Portal
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void sign_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+
+            //the textbox values
+            string name = sign_name_s.Text;
+            string email = email_s.Text;
+            string password = password_s.Text;
+            string ID = registration_num_s.Text;
+            bool is_student= Student_2.Checked;
+            string grade = grade_s.Text;
+            //profile = new Profile(name, password, ID, email, is_student);
+            Authenticate auth = new Authenticate(name, password, ID, email,grade, is_student);
+
+            if((!auth.student(ID) && is_student) || (auth.student(ID) && !is_student) )
+            {
+                MessageBox.Show("Registration Number Invalid", "Error");
+                sign_name_s.Text = string.Empty;
+                email_s.Text = string.Empty;
+                password_s.Text = string.Empty;
+                registration_num_s.Text = string.Empty;
+                grade_s.Text = string.Empty;
+                Student_2.Checked = false;
+
+            }
+
+
+            else 
+
+
+            { 
+            if(auth.sign_up() == "OK")
+            {
+
+                if (is_student)
+                {
+
+                    //open student_dashboard
+                    Intro_Page into = new Intro_Page();
+                    into.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    LoginPage ll = new LoginPage();
+                    ll.Show();
+                    //open teacher_dashboard
+                    this.Hide();
+                }
+
+
+            }
+            else if(auth.sign_up() == "validation_error") {
+                MessageBox.Show("Username Already exist please try another ",
+                   "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                sign_name_s.Text = string.Empty;
+                email_s.Text = string.Empty;
+                password_s.Text = string.Empty;
+                registration_num_s.Text = string.Empty;
+                grade_s.Text= string.Empty;
+                Student_2.Checked = false;
+
+            }
+            else
+            {
+                MessageBox.Show(auth.sign_up(),
+                  "Error",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+            }
+
+        }
+
+          
+
+            //if the thing is a teacher, then user = teacher
+            //else if the thing is a student then user = student
+            // call auth.sign_up
+            //if the process is true then open the dashboard
+            //else if the process if not true....output
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginPage login = new LoginPage();
+            login.Show();
+            this.Hide();
         }
     }
 }

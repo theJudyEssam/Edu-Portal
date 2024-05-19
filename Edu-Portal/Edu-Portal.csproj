@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dummypage-student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dummypage-student.Designer.cs">
+      <DependentUpon>dummypage-student.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dummypage-teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dummypage-teacher.Designer.cs">
+      <DependentUpon>dummypage-teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
@@ -66,6 +79,12 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="dummypage-student.resx">
+      <DependentUpon>dummypage-student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dummypage-teacher.resx">
+      <DependentUpon>dummypage-teacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>

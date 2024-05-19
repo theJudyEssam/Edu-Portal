@@ -33,8 +33,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.registration_login = new System.Windows.Forms.TextBox();
+            this.password_login = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -98,29 +98,30 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // textBox2
+            // registration_login
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.textBox2.Location = new System.Drawing.Point(80, 240);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(368, 30);
-            this.textBox2.TabIndex = 7;
+            this.registration_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.registration_login.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.registration_login.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.registration_login.Location = new System.Drawing.Point(80, 240);
+            this.registration_login.Margin = new System.Windows.Forms.Padding(0);
+            this.registration_login.Name = "registration_login";
+            this.registration_login.Size = new System.Drawing.Size(368, 30);
+            this.registration_login.TabIndex = 7;
             // 
-            // textBox1
+            // password_login
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.textBox1.Location = new System.Drawing.Point(80, 333);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(368, 30);
-            this.textBox1.TabIndex = 7;
+            this.password_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.password_login.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.password_login.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.password_login.Location = new System.Drawing.Point(80, 333);
+            this.password_login.Margin = new System.Windows.Forms.Padding(0);
+            this.password_login.Name = "password_login";
+            this.password_login.PasswordChar = '*';
+            this.password_login.Size = new System.Drawing.Size(368, 30);
+            this.password_login.TabIndex = 7;
             // 
             // panel2
             // 
@@ -176,6 +177,7 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Don\'t have an account? Register here!";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // LoginPage
             // 
@@ -195,8 +197,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.password_login);
+            this.Controls.Add(this.registration_login);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -218,8 +220,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox registration_login;
+        private System.Windows.Forms.TextBox password_login;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel linkLabel1;
