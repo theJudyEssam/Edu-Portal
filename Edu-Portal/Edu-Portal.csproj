@@ -47,23 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dummypage-student.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="dummypage-student.Designer.cs">
-      <DependentUpon>dummypage-student.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="dummypage-teacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="dummypage-teacher.Designer.cs">
-      <DependentUpon>dummypage-teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
@@ -79,12 +67,18 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="dummypage-student.resx">
-      <DependentUpon>dummypage-student.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="dummypage-teacher.resx">
-      <DependentUpon>dummypage-teacher.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Student_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student_Dashboard.Designer.cs">
+      <DependentUpon>Student_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher_Dashboard.Designer.cs">
+      <DependentUpon>Teacher_Dashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +94,12 @@
     </Compile>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student_Dashboard.resx">
+      <DependentUpon>Student_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher_Dashboard.resx">
+      <DependentUpon>Teacher_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

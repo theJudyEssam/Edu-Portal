@@ -75,6 +75,16 @@ namespace Edu_Portal
 
     }
 
+
+
+    class User_Session
+    {
+        public static string name;
+        public static string email;
+        public static string password;
+        public static string registration_number;
+        public static string grade;
+    }
     class Authenticate:Profile
     {
 
@@ -179,15 +189,16 @@ namespace Edu_Portal
           
         }
 
+       
         public bool log_in()
         {
             string placeholder = null;
+
 
             //this should have just the registration number and the password
             if (student(RegistrationNumber))
             {
                 placeholder = "Student_Personal_Info";
-
             }
             else if(!student(RegistrationNumber)) 
             {
@@ -196,44 +207,74 @@ namespace Edu_Portal
             }
 
 
-            try { 
+            try
+            {
 
-            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString)) {
-
-                connection.Open();
-
-                //the SQL query n the SQL command to check if this user already exists or not.
-                string query= $"SELECT COUNT(*) FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
-                SqlCommand query_cmd = new SqlCommand(query, connection);
-                query_cmd.Parameters.AddWithValue("@Password", Password);
-                query_cmd.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber );
-
-                var dr = query_cmd.ExecuteScalar();
-
-        
-
-                //i found this on the internet and added cuz "dr" returns null sometimes and i dont want that -j
-                int count = (dr != null) ? Convert.ToInt32(dr) : 0;
-                if (count > 0)
+                var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    //Exists
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
 
-}
+                    connection.Open();
 
+
+                    //the SQL query n the SQL command to check if this user already exists or not.
+                    string query = $"SELECT COUNT(*) FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
+                    SqlCommand query_cmd = new SqlCommand(query, connection);
+                    query_cmd.Parameters.AddWithValue("@Password", Password);
+                    query_cmd.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
+
+                    var dr = query_cmd.ExecuteScalar();
+
+
+
+                    //i found this on the internet and added cuz "dr" returns null sometimes and i dont want that -j
+                    int count = (dr != null) ? Convert.ToInt32(dr) : 0;
+                    if (count > 0)
+                    {
+                        //Exists
+                        //now u need to make a User_Session thing and make it accessbile throughout the whole thing.
+                        //store the variables in the static class 
+
+                       
+                        string get_query = $"SELECT * FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
+                        SqlCommand get_cmd = new SqlCommand(get_query, connection);
+                        get_cmd.Parameters.AddWithValue("@Password", Password);
+                        get_cmd.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
+
+
+                        using (SqlDataReader reader = get_cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                
+                                
+                                string registrationNumber = reader["Registration_Number"].ToString();
+                                string password = reader["Password"].ToString();
+                                string name = reader["Name"].ToString();
+                                string email = reader["Email"].ToString();
+
+
+                                User_Session.name = name;
+                                User_Session.email = email;
+                                User_Session.password = password;   
+                                User_Session.registration_number = registrationNumber;
+
+
+                            }
+
+                            return true;
+                        }
+
+
+                    }
+
+                    else { return false; }
+                }
             }
-            catch(Exception e) {
+            catch (Exception e)
+            {
                 MessageBox.Show(e.Message);
             }
-            
-
-
             return false;
         }
 
@@ -302,7 +343,9 @@ namespace Edu_Portal
     {
         public override void open_dashboard()
         {
-            throw new NotImplementedException();
+            Student_Dashboard student = new Student_Dashboard();
+            student.Show();
+
             //open the dashboard
         }
         public override void results()
@@ -315,8 +358,8 @@ namespace Edu_Portal
     {
         public override void open_dashboard()
         {
-            throw new NotImplementedException();
-            //open the dashboard
+            Teacher_Dashboard teacher = new Teacher_Dashboard();
+            teacher.Show();
         }
         public override void results()
         {
@@ -324,14 +367,7 @@ namespace Edu_Portal
         }
     }
 
-    class User_Session
-    {
-        public static string name;
-        public static string email;
-        public static string password;
-        public static string registration_number;
-        public static string grade;
-    }
+  
 
 
     internal static class Program

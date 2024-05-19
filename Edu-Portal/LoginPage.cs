@@ -89,7 +89,8 @@ namespace Edu_Portal
 
             if (auth.log_in())
             {
-                MessageBox.Show("You are in!");
+                user.open_dashboard();
+                this.Hide();
 
             }
             else

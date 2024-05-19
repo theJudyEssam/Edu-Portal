@@ -70,27 +70,22 @@ namespace Edu_Portal
             { 
             if(auth.sign_up() == "OK")
             {
-
+                User user;
                 if (is_student)
                 {
-
-                    //open student_dashboard
-                    Intro_Page into = new Intro_Page();
-                    into.Show();
-                    this.Hide();
+                  user = new Student();
                 }
                 else
                 {
-                    LoginPage ll = new LoginPage();
-                    ll.Show();
-                    //open teacher_dashboard
-                    this.Hide();
+                  user = new Teacher();
                 }
 
+                user.open_dashboard();
+                this.Hide();
 
             }
             else if(auth.sign_up() == "validation_error") {
-                MessageBox.Show("Username Already exist please try another ",
+                MessageBox.Show("Username Already exist please try another",
                    "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
