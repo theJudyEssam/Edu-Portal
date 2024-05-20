@@ -74,9 +74,6 @@ namespace Edu_Portal
         }
 
     }
-
-
-
     class User_Session
     {
         public static string name;
@@ -87,13 +84,9 @@ namespace Edu_Portal
     }
     class Authenticate:Profile
     {
-
         public Authenticate(string n, string p,string r,string e,string g, bool student):base(n, p, r, e, g ,student) { } //this is the first constructor that we are going to call in the sign up part
-
         public Authenticate(string r, string p) : base(r, p) { } //this will be the constructor for the login page
-
-        
-        public bool student(string Reg)
+        public bool student(string Reg) //checks if the registration number belongs to the student or the teacher.
         {
             if (Reg[0]== '2')
             {
@@ -105,16 +98,62 @@ namespace Edu_Portal
             }
             return false;
         }
-       
+
+
+        public void put_in_static(string Reg, string placeholder)
+        {
+            try { 
+
+            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string get_query = $"SELECT * FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
+                SqlCommand get_cmd = new SqlCommand(get_query, connection);
+                get_cmd.Parameters.AddWithValue("@Password", Password);
+                get_cmd.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
+
+
+                using (SqlDataReader reader = get_cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+
+
+                        string registrationNumber = reader["Registration_Number"].ToString();
+                        string password = reader["Password"].ToString();
+                        string name = reader["Name"].ToString();
+                        string email = reader["Email"].ToString();
+
+
+                        User_Session.name = name;
+                        User_Session.email = email;
+                        User_Session.password = password;
+                        User_Session.registration_number = registrationNumber;
+
+
+                    }
+
+                  
+                }
+            }
+          }
+                     catch(Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+        }
+
+
         public string sign_up()
         {
 
             string placeholder;
            
-
-            if (is_student)
+            if (is_student)  //so i know where to put the credentials i recieve
             {
                 placeholder = "Student_Personal_Info";
+             
             }
             else
             {
@@ -131,25 +170,36 @@ namespace Edu_Portal
 
                     connection.Open();
 
-                   //the SQL query n the SQL command to check if this user already exists or not.
+                    
+
+                    //the SQL query n the SQL command to check if this user already exists or not.
                     string validation_query = $"SELECT COUNT(*) FROM {placeholder} WHERE Registration_Number = @RegistrationNumber";
                     SqlCommand validation = new SqlCommand(validation_query, connection);
                     validation.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
 
 
                     var dr = validation.ExecuteScalar();
-                    //this returns the num of rows with sum val
-
-
+                   
                     //i found this on the internet and added cuz "dr" returns null sometimes and i dont want that -j
                     int count = (dr != null) ? Convert.ToInt32(dr) : 0;
                     if (count > 0)
                     {
-                        //Exists
+                        //Exists so return a "validation error"
                         return "validation_error";
                     }
                     else
                     {
+
+                        if (is_student)
+                        {
+                            //string grade = "Grade_" + Grade + "_Table";
+                            string grade_query = $"INSERT INTO Grade_12_Table (Student_Name, Registration_Number) VALUES (@Name, @Registration_Number)";
+                            SqlCommand query_cmd = new SqlCommand(grade_query, connection);
+                            query_cmd.Parameters.AddWithValue("@Name", Name);
+                            query_cmd.Parameters.AddWithValue("@Registration_Number", RegistrationNumber);
+                            query_cmd.ExecuteNonQuery();
+                        }
+
                         //Unique username....add it to the database
                         string main_query = $"INSERT INTO {placeholder} (Name, Email, Registration_Number, Password, Grade) VALUES (@Name, @Email, @Registration_Number, @Password, @Grade)";
                         //I read somewhere on the internet that using parameters is good to prevent SQL injection attacks n shi -j
@@ -164,6 +214,12 @@ namespace Edu_Portal
 
 
                         main_cmd.ExecuteNonQuery();
+                        put_in_static(RegistrationNumber, placeholder);
+
+                   
+
+
+
                         return "OK";
 
                        
@@ -184,27 +240,26 @@ namespace Edu_Portal
             //return true
             //else return false
             //put the name of the student and registration who signed up in the grade database
-
-
-          
         }
 
        
         public bool log_in()
         {
-            string placeholder = null;
-
-
             //this should have just the registration number and the password
+            
+            
+            
+            
+            string placeholder = null;
             if (student(RegistrationNumber))
             {
                 placeholder = "Student_Personal_Info";
             }
             else if(!student(RegistrationNumber)) 
             {
-                placeholder = "Teacher_Personal_Information";
-                
+                placeholder = "Teacher_Personal_Information";    
             }
+
 
 
             try
@@ -217,7 +272,7 @@ namespace Edu_Portal
                     connection.Open();
 
 
-                    //the SQL query n the SQL command to check if this user already exists or not.
+                    //the SQL query n the SQL command to check if this user exists or not.
                     string query = $"SELECT COUNT(*) FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
                     SqlCommand query_cmd = new SqlCommand(query, connection);
                     query_cmd.Parameters.AddWithValue("@Password", Password);
@@ -231,42 +286,19 @@ namespace Edu_Portal
                     int count = (dr != null) ? Convert.ToInt32(dr) : 0;
                     if (count > 0)
                     {
-                        //Exists
+                        //Exists n shi
                         //now u need to make a User_Session thing and make it accessbile throughout the whole thing.
                         //store the variables in the static class 
 
-                       
-                        string get_query = $"SELECT * FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
-                        SqlCommand get_cmd = new SqlCommand(get_query, connection);
-                        get_cmd.Parameters.AddWithValue("@Password", Password);
-                        get_cmd.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
+                        put_in_static(RegistrationNumber, placeholder); //i just made it in a whole other function
+                        return true;
 
-
-                        using (SqlDataReader reader = get_cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                
-                                
-                                string registrationNumber = reader["Registration_Number"].ToString();
-                                string password = reader["Password"].ToString();
-                                string name = reader["Name"].ToString();
-                                string email = reader["Email"].ToString();
-
-
-                                User_Session.name = name;
-                                User_Session.email = email;
-                                User_Session.password = password;   
-                                User_Session.registration_number = registrationNumber;
-
-
-                            }
-
-                            return true;
-                        }
 
 
                     }
+
+
+                    
 
                     else { return false; }
                 }
