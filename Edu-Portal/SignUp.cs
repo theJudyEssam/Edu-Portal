@@ -51,6 +51,8 @@ namespace Edu_Portal
             //profile = new Profile(name, password, ID, email, is_student);
             Authenticate auth = new Authenticate(name, password, ID, email,grade, is_student);
 
+
+
             if((!auth.student(ID) && is_student) || (auth.student(ID) && !is_student) )
             {
                 MessageBox.Show("Registration Number Invalid", "Error");
@@ -69,7 +71,7 @@ namespace Edu_Portal
 
             { 
             if(auth.sign_up() == "OK")
-            {
+            { 
                 User user;
                 if (is_student)
                 {

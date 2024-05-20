@@ -24,10 +24,15 @@ namespace Edu_Portal
 
         private void Student_Dashboard_Load(object sender, EventArgs e)
         {
-            name.Text = User_Session.name;
-            email.Text = User_Session.email;
-            password.Text = User_Session.password;
-            registration_num.Text = User_Session.registration_number;
+            name.Text = "Name: " + User_Session.name;
+            email.Text ="Email: " +  User_Session.email;
+            password.Text = "Password: " + User_Session.password;
+            registration_num.Text = "Registration Number: "+ User_Session.registration_number;
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
