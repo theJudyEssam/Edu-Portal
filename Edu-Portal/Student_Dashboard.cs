@@ -28,11 +28,19 @@ namespace Edu_Portal
             email.Text ="Email: " +  User_Session.email;
             password.Text = "Password: " + User_Session.password;
             registration_num.Text = "Registration Number: "+ User_Session.registration_number;
+            grade.Text = "Grade: "+User_Session.grade;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Student_Results student = new Student_Results();
+            student.Show();
+            
         }
     }
 }

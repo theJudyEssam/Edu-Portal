@@ -33,6 +33,8 @@
             this.email = new System.Windows.Forms.Label();
             this.password = new System.Windows.Forms.Label();
             this.registration_num = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.grade = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -86,11 +88,32 @@
             this.registration_num.TabIndex = 4;
             this.registration_num.Text = "ID";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(264, 120);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 64);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // grade
+            // 
+            this.grade.AutoSize = true;
+            this.grade.Location = new System.Drawing.Point(40, 304);
+            this.grade.Name = "grade";
+            this.grade.Size = new System.Drawing.Size(54, 20);
+            this.grade.TabIndex = 6;
+            this.grade.Text = "Grade";
+            // 
             // Student_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.grade);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.registration_num);
             this.Controls.Add(this.password);
             this.Controls.Add(this.email);
@@ -111,5 +134,7 @@
         private System.Windows.Forms.Label email;
         private System.Windows.Forms.Label password;
         private System.Windows.Forms.Label registration_num;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label grade;
     }
 }

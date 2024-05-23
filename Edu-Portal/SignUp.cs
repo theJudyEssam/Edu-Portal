@@ -48,12 +48,13 @@ namespace Edu_Portal
             string ID = registration_num_s.Text;
             bool is_student= Student_2.Checked;
             string grade = grade_s.Text;
-            //profile = new Profile(name, password, ID, email, is_student);
-            Authenticate auth = new Authenticate(name, password, ID, email,grade, is_student);
+
+           // Profile profile = new Profile(name, password, ID, email, grade,is_student);
+            Authenticate auth = new Authenticate(name, password, ID, email, grade, is_student);
 
 
 
-            if((!auth.student(ID) && is_student) || (auth.student(ID) && !is_student) )
+            if ((!auth.student(ID) && is_student) || (auth.student(ID) && !is_student))
             {
                 MessageBox.Show("Registration Number Invalid", "Error");
                 sign_name_s.Text = string.Empty;
@@ -62,60 +63,57 @@ namespace Edu_Portal
                 registration_num_s.Text = string.Empty;
                 grade_s.Text = string.Empty;
                 Student_2.Checked = false;
-
-            }
-
-
-            else 
-
-
-            { 
-            if(auth.sign_up() == "OK")
-            { 
-                User user;
-                if (is_student)
-                {
-                  user = new Student();
-                }
-                else
-                {
-                  user = new Teacher();
-                }
-
-                user.open_dashboard();
-                this.Hide();
-
-            }
-            else if(auth.sign_up() == "validation_error") {
-                MessageBox.Show("Username Already exist please try another",
-                   "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                sign_name_s.Text = string.Empty;
-                email_s.Text = string.Empty;
-                password_s.Text = string.Empty;
-                registration_num_s.Text = string.Empty;
-                grade_s.Text= string.Empty;
-                Student_2.Checked = false;
-
             }
             else
             {
-                MessageBox.Show(auth.sign_up(),
-                  "Error",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                if (auth.sign_up() == "OK")
+                {
+                    User user;
+                    if (is_student)
+                    {
+                        user = new Student();
+                    }
+
+                    else
+                    {
+                        user = new Teacher();
+                    }
+
+                    user.open_dashboard();
+                    this.Hide();
+
+                }
+                else if (auth.sign_up() == "validation_error")
+                {
+                    MessageBox.Show("Registration Number Already exist please try another",
+                       "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    sign_name_s.Text = string.Empty;
+                    email_s.Text = string.Empty;
+                    password_s.Text = string.Empty;
+                    registration_num_s.Text = string.Empty;
+                    grade_s.Text = string.Empty;
+                    Student_2.Checked = false;
+
+                }
+                else
+                {
+                    MessageBox.Show(auth.sign_up(),
+                      "Error",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                }
+
             }
 
-        }
 
-          
 
-            //if the thing is a teacher, then user = teacher
-            //else if the thing is a student then user = student
-            // call auth.sign_up
-            //if the process is true then open the dashboard
+            //    //if the thing is a teacher, then user = teacher
+            //    //else if the thing is a student then user = student
+            //    // call auth.sign_up
+            //    //if the process is true then open the dashboard
             //else if the process if not true....output
 
         }

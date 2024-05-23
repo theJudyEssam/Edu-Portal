@@ -132,12 +132,14 @@ namespace Edu_Portal
                             string password = reader["Password"].ToString();
                             string name = reader["Name"].ToString();
                             string email = reader["Email"].ToString();
+                            string grade = reader["Grade"].ToString();
 
 
                             User_Session.name = name;
                             User_Session.email = email;
                             User_Session.password = password;
                             User_Session.registration_number = registrationNumber;
+                            User_Session.grade = grade;
 
                         }
                     }
@@ -200,8 +202,9 @@ namespace Edu_Portal
 
                         if (is_student)
                         {
+                            string grade = "Grade_"+Grade;
                             //string grade = "Grade_" + Grade + "_Table";  fix this later
-                            string grade_query = $"INSERT INTO Grade_12_Table (Student_Name, Registration_Number) VALUES (@Name, @Registration_Number)";
+                            string grade_query = $"INSERT INTO {grade} (Student_Name, Registration_Number) VALUES (@Name, @Registration_Number)";
                             SqlCommand query_cmd = new SqlCommand(grade_query, connection);
                             query_cmd.Parameters.AddWithValue("@Name", Name);
                             query_cmd.Parameters.AddWithValue("@Registration_Number", RegistrationNumber);
@@ -224,7 +227,7 @@ namespace Edu_Portal
 
                         main_cmd.ExecuteNonQuery();
                         put_in_static(placeholder);
-
+                        //MessageBox.Show("your grade is:" + User_Session.grade);
 
 
 
@@ -323,49 +326,93 @@ namespace Edu_Portal
 
     class Subject
     {
-        public int total_mark;
-        public int final_mark;
-        public int midterm_mark;
-        public int assignment_mark;
+        public string total_mark = "U";
+        public string final_mark = "U";
+        public string midterm_mark = "U";
+        public string assignment_mark = "U";
 
 
         //make properties to validate this?
-        public void fetch_data(string Subject)
+         public static Subject fetch_data(string Subject)
         {
-            Subject subject = new Subject();
+           // MessageBox.Show("I am in the fetch data");
+            Subject sub = new Subject();
             string grade = User_Session.grade;
             string registration_number = User_Session.registration_number;
-            string table = "Grade_" + grade + "_Table";
+            string Grade;
+
+            MessageBox.Show(grade);
+            MessageBox.Show(registration_number);
+            if (grade == "12")
+            {
+                Grade = "Grade_12";
+            }
+            else
+            {
+                Grade = "Grade_11";
+            }
+
+            //MessageBox.Show(grade);
+            //MessageBox.Show(Grade);
+            //if(registration_number == null)
+            //{
+            //    MessageBox.Show("there is no ID");
+            //}
+            //else
+            //{
+            //    MessageBox.Show(registration_number);
+            //}
+            //string table = "Grade_" + grade + "_Table";
 
 
-            try {  var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+            try {  
+                
+                
+            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+
                 connection.Open();
-                string get_query = $"SELECT * FROM {grade} WHERE Registration_Number = @RegistrationNumber";
-                SqlCommand get_cmd = new SqlCommand(get_query, connection);
+                    //MessageBox.Show(Grade);
 
-                get_cmd.Parameters.AddWithValue("@RegistrationNumber", registration_number);
+                    string get_query = $"SELECT * FROM {Grade} WHERE Registration_Number = @RegistrationNumber";
+                    using (SqlCommand get_cmd = new SqlCommand(get_query, connection)) { 
+
+                           get_cmd.Parameters.AddWithValue("@RegistrationNumber", registration_number);
 
 
-                using (SqlDataReader reader = get_cmd.ExecuteReader())
-                {
-                    if (reader.Read())
+                    using (SqlDataReader reader = get_cmd.ExecuteReader())
                     {
+                        if (reader.Read())
+                        {
+
+                           if(sub.final_mark != null)
+                                    sub.final_mark = reader[$"{Subject}_Final_Mark"].ToString();
+                                
+                           if(sub.total_mark !=null)
+                                sub.total_mark = reader[$"{Subject}_Total_Mark"].ToString();
+
+                           if(sub.assignment_mark != null)
+                                sub.assignment_mark = reader[$"{Subject}_Assignments_Mark"].ToString();
+
+                           if(sub.midterm_mark !=null)
+                                sub.midterm_mark = reader[$"{Subject}_Midterm_Mark"].ToString();
+
+                            //MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
+
+                            }
+
+                            else
+                            {
+                                //MessageBox.Show($"No data found for registration number {registration_number}.");
+                            }
 
 
-                        final_mark = (int)reader[Subject + "_Final_Mark"];
-                        total_mark = (int)reader[Subject + "_Total_Mark"];
-                        assignment_mark = (int)reader[Subject + "_Assignment_Mark"];
-                        midterm_mark = (int)reader[Subject + "_Midterm_Mark"];
-
-
-
-                    }
-
+                        }
 
                 }}
-           
+               
+
 
                 //ignore all this
                 //should access the database and put in all the values of the student
@@ -377,6 +424,9 @@ namespace Edu_Portal
             {
                 MessageBox.Show(e.Message);
             }
+
+
+            return sub;
 
         } }
 
@@ -390,7 +440,12 @@ abstract class User
 
 class Student : User
 {
-    Subject[] subjects;
+    public Subject[] subjects;
+
+    public Student()
+        {
+            subjects = new Subject[3];
+        }
     public override void open_dashboard()
     {
         Student_Dashboard student = new Student_Dashboard();
@@ -400,21 +455,23 @@ class Student : User
     }
     public override void results()
     {
-        Subject science = new Subject();
-        science.fetch_data("Science");
-        Subject math = new Subject();
-        math.fetch_data("Math");
-        Subject english = new Subject();
-        english.fetch_data("English");
-        subjects[0] = science;
-        subjects[1] = math;
-        subjects[2] = english;
-        //Makes three objects for each subject
-        //calls fetch data on each subject
-        //retrieves the row that has the same data as the registration number
-        //puts everything in its respective object
-        //adds the object to the array
-    }
+       
+        subjects[0] = Subject.fetch_data("Science");
+
+         if (subjects[0].final_mark == null) 
+        MessageBox.Show(subjects[0].final_mark);
+
+
+            subjects[1] = Subject.fetch_data("Math");
+        subjects[2] = Subject.fetch_data("English");
+
+
+            //Makes three objects for each subject
+            //calls fetch data on each subject
+            //retrieves the row that has the same data as the registration number
+            //puts everything in its respective object
+            //adds the object to the array
+        }
 }
 
 class Teacher : User
