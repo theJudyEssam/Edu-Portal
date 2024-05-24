@@ -35,5 +35,35 @@ namespace Edu_Portal
             Teacher_Results_Page results = new Teacher_Results_Page();
             results.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void set_icon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void result_icon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void log_icon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
