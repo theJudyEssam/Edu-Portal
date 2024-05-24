@@ -476,7 +476,7 @@ class Student : User
 
 class Teacher : User
 {
-    DataSet Student_Grades;
+    public DataTable Student_Grades = new DataTable();
     public override void open_dashboard()
     {
         Teacher_Dashboard teacher = new Teacher_Dashboard();
@@ -491,7 +491,7 @@ class Teacher : User
             using (SqlConnection connection = new SqlConnection(connectionString)) //basically use this object within this scope
             {
                 connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM Grade_{grade}_Table", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM Grade_{grade}", connection);
                 adapter.Fill(Student_Grades);
 
 
@@ -500,7 +500,11 @@ class Teacher : User
                 //Takes the grade that the teacher teaches
                 //Puts the Entire Database in the dataset
                 //so it can be displayed in a datagrid
+
+
             }
+
+
 
             public void Materials()
     {

@@ -31,13 +31,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.e_midterm_mark = new System.Windows.Forms.Label();
+            this.e_final_mark = new System.Windows.Forms.Label();
+            this.e_total_mark = new System.Windows.Forms.Label();
             this.s_final_mark = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.m_midterm_mark = new System.Windows.Forms.Label();
+            this.m_final_mark = new System.Windows.Forms.Label();
+            this.m_total_mark = new System.Windows.Forms.Label();
             this.s_midterm_mark = new System.Windows.Forms.Label();
             this.s_total_mark = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -69,32 +69,32 @@
             this.label11.TabIndex = 26;
             this.label11.Text = "science";
             // 
-            // label8
+            // e_midterm_mark
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(128, 328);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 20);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "label8";
+            this.e_midterm_mark.AutoSize = true;
+            this.e_midterm_mark.Location = new System.Drawing.Point(128, 328);
+            this.e_midterm_mark.Name = "e_midterm_mark";
+            this.e_midterm_mark.Size = new System.Drawing.Size(51, 20);
+            this.e_midterm_mark.TabIndex = 25;
+            this.e_midterm_mark.Text = "label8";
             // 
-            // label9
+            // e_final_mark
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(128, 296);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 20);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "label9";
+            this.e_final_mark.AutoSize = true;
+            this.e_final_mark.Location = new System.Drawing.Point(128, 296);
+            this.e_final_mark.Name = "e_final_mark";
+            this.e_final_mark.Size = new System.Drawing.Size(51, 20);
+            this.e_final_mark.TabIndex = 24;
+            this.e_final_mark.Text = "label9";
             // 
-            // label10
+            // e_total_mark
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(128, 264);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "label10";
+            this.e_total_mark.AutoSize = true;
+            this.e_total_mark.Location = new System.Drawing.Point(128, 264);
+            this.e_total_mark.Name = "e_total_mark";
+            this.e_total_mark.Size = new System.Drawing.Size(60, 20);
+            this.e_total_mark.TabIndex = 23;
+            this.e_total_mark.Text = "label10";
             // 
             // s_final_mark
             // 
@@ -105,32 +105,32 @@
             this.s_final_mark.TabIndex = 22;
             this.s_final_mark.Text = "label7";
             // 
-            // label6
+            // m_midterm_mark
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(128, 216);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 20);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "label6";
+            this.m_midterm_mark.AutoSize = true;
+            this.m_midterm_mark.Location = new System.Drawing.Point(128, 216);
+            this.m_midterm_mark.Name = "m_midterm_mark";
+            this.m_midterm_mark.Size = new System.Drawing.Size(51, 20);
+            this.m_midterm_mark.TabIndex = 21;
+            this.m_midterm_mark.Text = "label6";
             // 
-            // label5
+            // m_final_mark
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(128, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 20);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "label5";
+            this.m_final_mark.AutoSize = true;
+            this.m_final_mark.Location = new System.Drawing.Point(128, 184);
+            this.m_final_mark.Name = "m_final_mark";
+            this.m_final_mark.Size = new System.Drawing.Size(51, 20);
+            this.m_final_mark.TabIndex = 20;
+            this.m_final_mark.Text = "label5";
             // 
-            // label4
+            // m_total_mark
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(128, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "label4";
+            this.m_total_mark.AutoSize = true;
+            this.m_total_mark.Location = new System.Drawing.Point(128, 152);
+            this.m_total_mark.Name = "m_total_mark";
+            this.m_total_mark.Size = new System.Drawing.Size(51, 20);
+            this.m_total_mark.TabIndex = 19;
+            this.m_total_mark.Text = "label4";
             // 
             // s_midterm_mark
             // 
@@ -158,13 +158,13 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.e_midterm_mark);
+            this.Controls.Add(this.e_final_mark);
+            this.Controls.Add(this.e_total_mark);
             this.Controls.Add(this.s_final_mark);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.m_midterm_mark);
+            this.Controls.Add(this.m_final_mark);
+            this.Controls.Add(this.m_total_mark);
             this.Controls.Add(this.s_midterm_mark);
             this.Controls.Add(this.s_total_mark);
             this.Name = "Student_Results";
@@ -180,13 +180,13 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label e_midterm_mark;
+        private System.Windows.Forms.Label e_final_mark;
+        private System.Windows.Forms.Label e_total_mark;
         private System.Windows.Forms.Label s_final_mark;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label m_midterm_mark;
+        private System.Windows.Forms.Label m_final_mark;
+        private System.Windows.Forms.Label m_total_mark;
         private System.Windows.Forms.Label s_midterm_mark;
         private System.Windows.Forms.Label s_total_mark;
     }

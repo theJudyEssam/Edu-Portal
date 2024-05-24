@@ -33,6 +33,7 @@
             this.password = new System.Windows.Forms.Label();
             this.Registration = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +50,7 @@
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.name.Location = new System.Drawing.Point(328, 168);
+            this.name.Location = new System.Drawing.Point(504, 96);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(90, 39);
             this.name.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             this.password.AutoSize = true;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.password.Location = new System.Drawing.Point(328, 208);
+            this.password.Location = new System.Drawing.Point(504, 136);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(90, 39);
             this.password.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             this.Registration.AutoSize = true;
             this.Registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.Registration.Location = new System.Drawing.Point(328, 248);
+            this.Registration.Location = new System.Drawing.Point(504, 176);
             this.Registration.Name = "Registration";
             this.Registration.Size = new System.Drawing.Size(90, 39);
             this.Registration.TabIndex = 3;
@@ -80,17 +81,28 @@
             // 
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.Email.Location = new System.Drawing.Point(328, 296);
+            this.Email.Location = new System.Drawing.Point(504, 224);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(90, 39);
             this.Email.TabIndex = 4;
             this.Email.Text = "hello";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(64, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 32);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Student Results";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Teacher_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Registration);
             this.Controls.Add(this.password);
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Label password;
         private System.Windows.Forms.Label Registration;
         private System.Windows.Forms.Label Email;
+        private System.Windows.Forms.Button button1;
     }
 }

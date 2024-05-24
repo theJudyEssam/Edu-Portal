@@ -29,5 +29,11 @@ namespace Edu_Portal
         {
            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Teacher_Results_Page results = new Teacher_Results_Page();
+            results.Show();
+        }
     }
 }

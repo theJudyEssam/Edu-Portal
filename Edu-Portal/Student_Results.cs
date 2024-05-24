@@ -30,9 +30,19 @@ namespace Edu_Portal
             Subject math = student.subjects[1];
             Subject english = student.subjects[2];
 
+
+            //the names of the labels
             s_total_mark.Text =  science.total_mark;
             s_midterm_mark.Text = science.midterm_mark;
             s_final_mark.Text = science.final_mark;
+
+            m_total_mark.Text = math.total_mark;
+            m_final_mark.Text = math.final_mark;
+            m_midterm_mark.Text = math.midterm_mark;
+
+            e_total_mark.Text = english.total_mark;
+            e_final_mark.Text = english.final_mark;
+            e_midterm_mark.Text= english.midterm_mark;
 
 
         }
