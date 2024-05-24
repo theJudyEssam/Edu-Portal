@@ -19,10 +19,10 @@ namespace Edu_Portal
 
         private void Teacher_Dashboard_Load(object sender, EventArgs e)
         {
-            name.Text = User_Session.name;
-            Registration.Text = User_Session.registration_number;
-            Email.Text = User_Session.email;
-            password.Text = User_Session.password;
+            //name.Text = User_Session.name;
+            //Registration.Text = User_Session.registration_number;
+            //Email.Text = User_Session.email;
+            //password.Text = User_Session.password;
         }
 
         private void name_Click(object sender, EventArgs e)
@@ -65,5 +65,16 @@ namespace Edu_Portal
         {
 
         }
+
+        private void password_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            calendar.BackColor = Color.CadetBlue;
+        }
+
     }
 }

@@ -146,5 +146,26 @@
   <ItemGroup>
     <None Include="Resources\hide.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\results.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-education-hardware-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\educational-tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
