@@ -27,6 +27,7 @@ namespace Edu_Portal
             {
                 MessageBox.Show("ERROR THIS IS NULL");
             }
+
             Subject math = student.subjects[1];
             Subject english = student.subjects[2];
 

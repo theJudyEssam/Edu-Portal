@@ -8,20 +8,16 @@ using System.Windows.Forms;
 
 namespace Edu_Portal
 {
-    public class Profile
+    public class Profile    //this class is made for basically validation of the variables only :>
     {
-        //this class is made for basically validation of the variables only :>
-        //THE VALIDATION FOR THE VALUES IS IN THE SIGN_UP PAGE CODE ITSELF
-
         //the private properties AKA the values
         private string name;
         private string password;
         private string registration_number;
         private string email;
         private string grade;
+        private string Teaching_Subject;
         public bool is_student;
-        public string teaching_subject;
-
 
         //these are the properties 
         public string Grade
@@ -42,21 +38,20 @@ namespace Edu_Portal
         public string RegistrationNumber
         {
             get { return registration_number; }
-            set
-            {
-                registration_number = value;
-
-
-
-            }
+            set { registration_number = value; }
         }
         public string Email
         {
             get { return email; }
             set { email = value; }
         }
+        public string teaching_subject
+        {
+            get { return Teaching_Subject; }
+            set { Teaching_Subject = value; }
+        }
 
-
+        //three types of constructors
         public Profile(string n, string p, string r, string e, string g, bool student, string t)  //this is the first constructor that takes in the "sign up" information
         {
             grade = g;
@@ -84,13 +79,11 @@ namespace Edu_Portal
         public static string grade;
         public static string teaching_subject;
     }
-
-    class Authenticate : Profile
+    class Authenticate : Profile  //the class for Authenticating purposes
     {
         public Authenticate(string n, string p, string r, string e, string g, bool student, string teaching_subject) : base(n, p, r, e, g, student, teaching_subject) { }
-        //this is the first constructor that we are going to call in the sign up part
-        public Authenticate(string r, string p) : base(r, p) { } //this will be the constructor for the login page
-        public Authenticate() { } // a default constructor that i am still not sure why i put , but its for inheritance purposes
+        public Authenticate(string r, string p) : base(r, p) { } 
+        public Authenticate() { } 
 
 
         public bool student(string Reg) //checks if the registration number belongs to the student or the teacher.
@@ -103,16 +96,15 @@ namespace Edu_Portal
             return false;
         }
 
-        public void put_in_static(string placeholder)
+        public void put_in_static(string placeholder)  //puts the credentials in a static variable
         {
             try
             {
-
                 var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-
                     string get_query = $"SELECT * FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
                     SqlCommand get_cmd = new SqlCommand(get_query, connection);
                     get_cmd.Parameters.AddWithValue("@Password", Password);
@@ -123,7 +115,6 @@ namespace Edu_Portal
                     {
                         if (reader.Read())
                         {
-
 
                             string registrationNumber = reader["Registration_Number"].ToString();
                             string password = reader["Password"].ToString();
@@ -138,11 +129,12 @@ namespace Edu_Portal
                             User_Session.registration_number = registrationNumber;
                             User_Session.grade = grade;
 
-                            if (!student(RegistrationNumber))
+                            if (!student(RegistrationNumber))  //if the user is a teacher, add the subject that they teach too.
                             {
                                 string teaching_subject = reader["Teaching_Subject"].ToString();
                                 User_Session.teaching_subject = teaching_subject;
                             }
+
 
                         }
                     }
@@ -154,13 +146,12 @@ namespace Edu_Portal
             {
                 MessageBox.Show(e.Message);
             }
-        }
+        }  
 
         public string sign_up()
         {
 
             string placeholder;
-
             if (is_student)  //so i know where to put the credentials i recieve
             {
                 placeholder = "Student_Personal_Info";
@@ -170,7 +161,6 @@ namespace Edu_Portal
                 placeholder = "Teacher_Personal_Info";
             }
 
-
             try
             {
 
@@ -178,35 +168,25 @@ namespace Edu_Portal
 
                 using (SqlConnection connection = new SqlConnection(connectionString)) //basically use this object within this scope
                 {
-
                     connection.Open();
-
-
 
                     //the SQL query n the SQL command to check if this user already exists or not.
                     string validation_query = $"SELECT COUNT(*) FROM {placeholder} WHERE Registration_Number = @RegistrationNumber";//CHECK IF EMAIL IS SAME OR NOT
                     SqlCommand validation = new SqlCommand(validation_query, connection);
                     validation.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
-
-
                     var dr = validation.ExecuteScalar();
-
-                    //i found this on the internet and added cuz "dr" returns null sometimes and i dont want that -j
-                    int count = (dr != null) ? Convert.ToInt32(dr) : 0;
+                    int count = (dr != null) ? Convert.ToInt32(dr) : 0;//i found this on the internet and added cuz "dr" returns null sometimes and i dont want that -j
 
                     if (count > 0)
                     {
-                        //Exists so return a "validation error"
+                        //Exists so returns a "validation error"
                         return "validation_error";
                     }
                     else
                     {
-                        //MEANS THAT THE USER IS UNIQUE
-
-                        if (is_student)
+                        if (is_student) // add the user's credentials to their Respective Grade Database
                         {
                             string grade = "Grade_" + Grade;
-                            //string grade = "Grade_" + Grade + "_Table";  fix this later
                             string grade_query = $"INSERT INTO {grade} (Student_Name, Registration_Number) VALUES (@Name, @Registration_Number)";
                             SqlCommand query_cmd = new SqlCommand(grade_query, connection);
                             query_cmd.Parameters.AddWithValue("@Name", Name);
@@ -217,17 +197,14 @@ namespace Edu_Portal
 
                         //Unique username....add it to the database
                         string main_query = $"INSERT INTO {placeholder} (Name, Email, Registration_Number, Password, Grade) VALUES (@Name, @Email, @Registration_Number, @Password, @Grade)";
-                        //I read somewhere on the internet that using parameters is good to prevent SQL injection attacks n shi -j
 
-                        //making the command and adding in the parameters
+
                         SqlCommand main_cmd = new SqlCommand(main_query, connection);
                         main_cmd.Parameters.AddWithValue("@Name", Name);
                         main_cmd.Parameters.AddWithValue("@Password", Password);
                         main_cmd.Parameters.AddWithValue("@Registration_Number", RegistrationNumber);
                         main_cmd.Parameters.AddWithValue("@Email", Email);
                         main_cmd.Parameters.AddWithValue("@Grade", Grade);
-
-
                         main_cmd.ExecuteNonQuery();
 
                         if (!student(RegistrationNumber))
@@ -243,37 +220,20 @@ namespace Edu_Portal
                         put_in_static(placeholder);
                         //MessageBox.Show("your grade is:" + User_Session.grade);
 
-
-
-                        return "OK";
-
+                        return "OK";  
 
                     }
                 }
-                // SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-3IHB7TU;Initial Catalog=Edu_portal;Integrated Security=True;Encrypt=True");
-
             }
-
             catch (Exception e)
             {
                 return $"Connection_Error_1 {e}";
             }
-
-            //takes the name and the credentials  check
-            //makes sure en mafeesh two people with same id [validation] check
-            //if yes put it in database and return check
-            //return true
-            //else return false
-            //put the name of the student and registration who signed up in the grade database
         }
 
         public bool log_in()
         {
             //this should have just the registration number and the password
-
-
-
-
             string placeholder = null;
             if (student(RegistrationNumber))
             {
@@ -283,8 +243,6 @@ namespace Edu_Portal
             {
                 placeholder = "Teacher_Personal_Info";
             }
-
-
 
             try
             {
@@ -350,32 +308,7 @@ namespace Edu_Portal
             Subject sub = new Subject();
             string grade = User_Session.grade;
             string registration_number = User_Session.registration_number;
-            string Grade;
-
-            MessageBox.Show(grade);
-            // MessageBox.Show(registration_number);
-            if (grade == "12")
-            {
-                Grade = "Grade_12";
-            }
-            else
-            {
-                Grade = "Grade_11";
-            }
-
-            //MessageBox.Show(grade);
-            MessageBox.Show(Grade);
-            //if(registration_number == null)
-            //{
-            //    MessageBox.Show("there is no ID");
-            //}
-            //else
-            //{
-            //    MessageBox.Show(registration_number);
-            //}
-            //string table = "Grade_" + grade + "_Table";
-
-
+          
             try
             {
 
@@ -425,14 +358,6 @@ namespace Edu_Portal
 
                     }
                 }
-
-
-
-                //ignore all this
-                //should access the database and put in all the values of the student
-                //in the static variables so it is easier to access
-                //i put this to just silence the error
-
             }
             catch (Exception e)
             {
@@ -444,7 +369,7 @@ namespace Edu_Portal
 
         }
     }
-    abstract class User
+    abstract class User : Authenticate
     {
         public abstract void open_dashboard();
         public abstract void results();
@@ -476,13 +401,9 @@ namespace Edu_Portal
 
             subjects[1] = Subject.fetch_data("Math");
             subjects[2] = Subject.fetch_data("English");
-            MessageBox.Show("The final mark of english is "+ subjects[0].final_mark);
+            
 
-            //Makes three objects for each subject
-            //calls fetch data on each subject
-            //retrieves the row that has the same data as the registration number
-            //puts everything in its respective object
-            //adds the object to the array
+        
         }
     }
 
@@ -494,8 +415,6 @@ namespace Edu_Portal
         //static variables from User_Session Class
         string grade = User_Session.grade;
         string subject = User_Session.teaching_subject;
-
-        //we are going to use this to fill that database
 
         public override void open_dashboard()
         {
@@ -512,13 +431,10 @@ namespace Edu_Portal
                 adapter = new SqlDataAdapter($@"SELECT Student_Name, Registration_Number, {subject}_Total_Mark, {subject}_Final_Mark, {subject}_Midterm_Mark, {subject}_Assignments_Mark FROM Grade_{grade}", connection);
                 adapter.Fill(Student_Grades);
             }
-
         }
 
         public void Save_Data(string reg, string total_mark, string final_mark, string midterm, string assignments_mark)
         {
-
-
             try {
 
                 var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
@@ -531,14 +447,7 @@ namespace Edu_Portal
                         get_cmd.Parameters.AddWithValue("@Registration_Number", reg);
                         get_cmd.ExecuteNonQuery();
                     }
-                
-
-
                 }
-
-
-               
-
 
             } catch(Exception ex) {
 
@@ -550,14 +459,13 @@ namespace Edu_Portal
     }
 
 
-    class Settings : Authenticate
+   class Settings:Authenticate
         {
             public void change_password(string registration_num)
             {
                 //to change the password of the user
                 //you should change the value in the User_Session
                 //and change the value in the database
-
             }
             public void change_email(string registration_num)
             {
