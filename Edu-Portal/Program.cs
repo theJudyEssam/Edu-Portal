@@ -352,7 +352,7 @@ namespace Edu_Portal
             string registration_number = User_Session.registration_number;
             string Grade;
 
-            //MessageBox.Show(grade);
+            MessageBox.Show(grade);
             // MessageBox.Show(registration_number);
             if (grade == "12")
             {
@@ -364,7 +364,7 @@ namespace Edu_Portal
             }
 
             //MessageBox.Show(grade);
-            //MessageBox.Show(Grade);
+            MessageBox.Show(Grade);
             //if(registration_number == null)
             //{
             //    MessageBox.Show("there is no ID");
@@ -387,7 +387,7 @@ namespace Edu_Portal
                     connection.Open();
                     //MessageBox.Show(Grade);
 
-                    string get_query = $"SELECT * FROM {Grade} WHERE Registration_Number = @RegistrationNumber";
+                    string get_query = $"SELECT * FROM Grade_{grade} WHERE Registration_Number = @RegistrationNumber";
                     using (SqlCommand get_cmd = new SqlCommand(get_query, connection))
                     {
 
@@ -411,13 +411,13 @@ namespace Edu_Portal
                                 if (sub.midterm_mark != null)
                                     sub.midterm_mark = reader[$"{Subject}_Midterm_Mark"].ToString();
 
-                                //MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
+                                MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
 
                             }
 
                             else
                             {
-                                //MessageBox.Show($"No data found for registration number {registration_number}.");
+                                MessageBox.Show($"No data found for registration number {registration_number}.");
                             }
 
 
@@ -476,7 +476,7 @@ namespace Edu_Portal
 
             subjects[1] = Subject.fetch_data("Math");
             subjects[2] = Subject.fetch_data("English");
-
+            MessageBox.Show("The final mark of english is "+ subjects[0].final_mark);
 
             //Makes three objects for each subject
             //calls fetch data on each subject

@@ -106,10 +106,6 @@ namespace Edu_Portal
         private void button2_Click(object sender, EventArgs e)
         {
           
-
-
-
-
             int index = dataGridView1.CurrentCell.RowIndex;  //this fetches the current cell that i selected
            
             DataGridViewRow current_row = dataGridView1.Rows[index];
