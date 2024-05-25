@@ -93,6 +93,9 @@
     <Compile Include="Teacher_Results_Page.Designer.cs">
       <DependentUpon>Teacher_Results_Page.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>

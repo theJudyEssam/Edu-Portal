@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
+
 namespace Edu_Portal
 {
     public class Profile
@@ -352,7 +353,7 @@ namespace Edu_Portal
             string Grade;
 
             //MessageBox.Show(grade);
-           // MessageBox.Show(registration_number);
+            // MessageBox.Show(registration_number);
             if (grade == "12")
             {
                 Grade = "Grade_12";
@@ -443,7 +444,7 @@ namespace Edu_Portal
 
         }
     }
-    abstract class User 
+    abstract class User
     {
         public abstract void open_dashboard();
         public abstract void results();
@@ -495,7 +496,7 @@ namespace Edu_Portal
         string subject = User_Session.teaching_subject;
 
         //we are going to use this to fill that database
-     
+
         public override void open_dashboard()
         {
             Teacher_Dashboard teacher = new Teacher_Dashboard();
@@ -505,72 +506,85 @@ namespace Edu_Portal
         {
 
             var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString)) 
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                 adapter = new SqlDataAdapter($@"SELECT Student_Name, Registration_Number, {subject}_Total_Mark, {subject}_Final_Mark, {subject}_Midterm_Mark, {subject}_Assignments_Mark FROM Grade_{grade}", connection);
+                adapter = new SqlDataAdapter($@"SELECT Student_Name, Registration_Number, {subject}_Total_Mark, {subject}_Final_Mark, {subject}_Midterm_Mark, {subject}_Assignments_Mark FROM Grade_{grade}", connection);
                 adapter.Fill(Student_Grades);
             }
-            
+
         }
 
-        public void Save_Data()
+        public void Save_Data(string reg, string total_mark, string final_mark, string midterm, string assignments_mark)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+
+            try {
+
+                var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = $"UPDATE Grade_{User_Session.grade} SET {User_Session.teaching_subject}_Total_Mark = {total_mark}, {User_Session.teaching_subject}_Final_Mark = {final_mark},  {User_Session.teaching_subject}_Midterm_Mark = {midterm}, {User_Session.teaching_subject}_Assignments_Mark = {assignments_mark} WHERE Registration_Number = @Registration_Number";
+                    using(SqlCommand get_cmd = new SqlCommand(query, conn))
+                    {
+                        get_cmd.Parameters.AddWithValue("@Registration_Number", reg);
+                        get_cmd.ExecuteNonQuery();
+                    }
+                
+
+
+                }
+
+
+               
+
+
+            } catch(Exception ex) {
+
+                MessageBox.Show(ex.Message);
+            }
+          
+        }
+
+    }
+
+
+    class Settings : Authenticate
+        {
+            public void change_password(string registration_num)
             {
-                SqlDataAdapter adapter = new SqlDataAdapter($@"SELECT Student_Name, Registration_Number, {subject}_Total_Mark, {subject}_Final_Mark, {subject}_Midterm_Mark, {subject}_Assignments_Mark FROM Grade_{grade}", conn);
-                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(adapter);
-                adapter.Update(Student_Grades);
+                //to change the password of the user
+                //you should change the value in the User_Session
+                //and change the value in the database
+
+            }
+            public void change_email(string registration_num)
+            {
+                //same as the change_password
+            }
+
+        }
+
+
+
+        internal static class Program
+        {
+            /// <summary>
+            /// The main entry point for the application.
+            /// </summary>
+            [STAThread]
+            static void Main()
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                SignUp signup = new SignUp();
+
+                Application.Run(new SignUp());
             }
         }
-
-
-
-        public void Materials()
-        {
-            //The teacher should be able to add a Google drive link with all the materials
-            //no need to implement a database for it or anything
-            //still not sure if i do need to even implement this or not
-        }
     }
 
-
-    class Settings:Authenticate
-    {
-        public void change_password(string registration_num)
-        {
-            //to change the password of the user
-            //you should change the value in the User_Session
-            //and change the value in the database
-
-        }
-        public void change_email(string registration_num)
-        {
-            //same as the change_password
-        }
-
-    }
-
-
-
-    internal static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            SignUp signup = new SignUp();
-
-            Application.Run(new SignUp());
-        }
-    }
-}
 
 
 
