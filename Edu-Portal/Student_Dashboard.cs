@@ -40,7 +40,12 @@ namespace Edu_Portal
         {
             Student_Results student = new Student_Results();
             student.Show();
-            
+        }
+
+        private void Student_Profile_Click(object sender, EventArgs e)
+        {
+            Student_Profile student_profile = new Student_Profile();
+            student_profile.Show();
         }
     }
 }

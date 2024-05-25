@@ -35,6 +35,8 @@
             this.registration_num = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.grade = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Student_Profile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,9 +92,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(264, 120);
+            this.button1.Location = new System.Drawing.Point(248, 136);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 32);
+            this.button1.Size = new System.Drawing.Size(144, 32);
             this.button1.TabIndex = 5;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -107,11 +109,32 @@
             this.grade.TabIndex = 6;
             this.grade.Text = "Grade";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // Student_Profile
+            // 
+            this.Student_Profile.Location = new System.Drawing.Point(248, 88);
+            this.Student_Profile.Name = "Student_Profile";
+            this.Student_Profile.Size = new System.Drawing.Size(152, 32);
+            this.Student_Profile.TabIndex = 8;
+            this.Student_Profile.Text = "Student Profile";
+            this.Student_Profile.UseVisualStyleBackColor = true;
+            this.Student_Profile.Click += new System.EventHandler(this.Student_Profile_Click);
+            // 
             // Student_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.Student_Profile);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.grade);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.registration_num);
@@ -136,5 +159,7 @@
         private System.Windows.Forms.Label registration_num;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label grade;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Student_Profile;
     }
 }

@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Edu_Portal
 {
-    public partial class Form2 : Form
+    public partial class Student_Profile : Form
     {
-        public Form2()
+        public Student_Profile()
         {
             InitializeComponent();
+        }
+
+        private void Student_Profile_Load(object sender, EventArgs e)
+        {
+            Student_Name.Text = User_Session.name;
+            User_Grade.Text = User_Session.grade;
+            User_ID.Text = User_Session.registration_number;
+            User_name.Text = User_Session.email;
         }
     }
 }
