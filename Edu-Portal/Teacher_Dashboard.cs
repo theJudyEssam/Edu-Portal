@@ -22,7 +22,9 @@ namespace Edu_Portal
             //name.Text = User_Session.name;
             //Registration.Text = User_Session.registration_number;
             //Email.Text = User_Session.email;
-            //password.Text = User_Session.password;
+            MessageBox.Show(User_Session.teaching_subject);
+            MessageBox.Show(User_Session.email);
+            password.Text = User_Session.teaching_subject;
         }
 
         private void name_Click(object sender, EventArgs e)

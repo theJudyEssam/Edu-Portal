@@ -12,6 +12,7 @@ namespace Edu_Portal
 {
     public partial class Teacher_Results_Page : Form
     {
+        Teacher teacher;
         public Teacher_Results_Page()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Edu_Portal
 
         private void Teacher_Results_Page_Load(object sender, EventArgs e)
         {
-            Teacher teacher = new Teacher();
+            teacher = new Teacher();
             teacher.results();
             if(teacher.Student_Grades == null)
             {
@@ -39,6 +40,16 @@ namespace Edu_Portal
             {
                 dataGridView1.DataSource = teacher.Student_Grades;
             }
+
+            DataTable table = teacher.Student_Grades;
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable dt = teacher.Student_Grades;
+            
+            teacher.Save_Data();
         }
     }
 }

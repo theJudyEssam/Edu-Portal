@@ -48,11 +48,16 @@ namespace Edu_Portal
             string ID = registration_num_s.Text;
             bool is_student= Student_2.Checked;
             string grade = grade_s.Text;
+            string teaching_subject = null;
+            if (!is_student)
+            {
+                teaching_subject = Subject_ComboBox.Text;
+            }
 
            // Profile profile = new Profile(name, password, ID, email, grade,is_student);
-            Authenticate auth = new Authenticate(name, password, ID, email, grade, is_student);
+            Authenticate auth = new Authenticate(name, password, ID, email, grade, is_student, teaching_subject);
 
-
+            //add validation
 
             if ((!auth.student(ID) && is_student) || (auth.student(ID) && !is_student))
             {
@@ -73,7 +78,6 @@ namespace Edu_Portal
                     {
                         user = new Student();
                     }
-
                     else
                     {
                         user = new Teacher();
@@ -133,6 +137,18 @@ namespace Edu_Portal
             LoginPage login = new LoginPage();
             login.Show();
             this.Hide();
+        }
+
+        private void Teacher_1_CheckedChanged(object sender, EventArgs e)
+        {
+            Subject_Label.Visible = true;
+            Subject_ComboBox.Visible = true;
+        }
+
+        private void Student_2_CheckedChanged(object sender, EventArgs e)
+        {
+            Subject_Label.Visible = false;
+            Subject_ComboBox.Visible = false;
         }
     }
 }

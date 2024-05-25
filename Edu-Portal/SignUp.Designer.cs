@@ -52,6 +52,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.grade_s = new System.Windows.Forms.ComboBox();
+            this.Subject_ComboBox = new System.Windows.Forms.ComboBox();
+            this.Subject_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -170,6 +172,7 @@
             this.Teacher_1.TabStop = true;
             this.Teacher_1.Text = "Teacher";
             this.Teacher_1.UseVisualStyleBackColor = true;
+            this.Teacher_1.CheckedChanged += new System.EventHandler(this.Teacher_1_CheckedChanged);
             // 
             // Student_2
             // 
@@ -182,12 +185,13 @@
             this.Student_2.TabStop = true;
             this.Student_2.Text = "Student";
             this.Student_2.UseVisualStyleBackColor = true;
+            this.Student_2.CheckedChanged += new System.EventHandler(this.Student_2_CheckedChanged);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.Student_2);
             this.panel2.Controls.Add(this.Teacher_1);
-            this.panel2.Location = new System.Drawing.Point(56, 400);
+            this.panel2.Location = new System.Drawing.Point(48, 416);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(280, 72);
             this.panel2.TabIndex = 22;
@@ -197,7 +201,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(70)))), ((int)(((byte)(163)))));
-            this.label5.Location = new System.Drawing.Point(56, 376);
+            this.label5.Location = new System.Drawing.Point(48, 392);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(263, 20);
             this.label5.TabIndex = 17;
@@ -273,7 +277,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(70)))), ((int)(((byte)(163)))));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(120, 488);
+            this.button1.Location = new System.Drawing.Point(112, 552);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(320, 40);
             this.button1.TabIndex = 23;
@@ -285,7 +289,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(152, 544);
+            this.linkLabel1.Location = new System.Drawing.Point(144, 608);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(243, 20);
             this.linkLabel1.TabIndex = 24;
@@ -316,12 +320,39 @@
             this.grade_s.TabIndex = 27;
             this.grade_s.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // Subject_ComboBox
+            // 
+            this.Subject_ComboBox.FormattingEnabled = true;
+            this.Subject_ComboBox.Items.AddRange(new object[] {
+            "Science",
+            "Math",
+            "English"});
+            this.Subject_ComboBox.Location = new System.Drawing.Point(368, 480);
+            this.Subject_ComboBox.Name = "Subject_ComboBox";
+            this.Subject_ComboBox.Size = new System.Drawing.Size(121, 28);
+            this.Subject_ComboBox.TabIndex = 29;
+            this.Subject_ComboBox.Visible = false;
+            // 
+            // Subject_Label
+            // 
+            this.Subject_Label.AutoSize = true;
+            this.Subject_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Subject_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(70)))), ((int)(((byte)(163)))));
+            this.Subject_Label.Location = new System.Drawing.Point(368, 448);
+            this.Subject_Label.Name = "Subject_Label";
+            this.Subject_Label.Size = new System.Drawing.Size(70, 20);
+            this.Subject_Label.TabIndex = 28;
+            this.Subject_Label.Text = "Subject";
+            this.Subject_Label.Visible = false;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(603, 608);
+            this.ClientSize = new System.Drawing.Size(603, 703);
+            this.Controls.Add(this.Subject_ComboBox);
+            this.Controls.Add(this.Subject_Label);
             this.Controls.Add(this.grade_s);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.linkLabel1);
@@ -378,5 +409,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox grade_s;
+        private System.Windows.Forms.ComboBox Subject_ComboBox;
+        private System.Windows.Forms.Label Subject_Label;
     }
 }

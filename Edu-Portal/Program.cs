@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Xml.Linq;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace Edu_Portal
@@ -24,7 +19,7 @@ namespace Edu_Portal
         private string email;
         private string grade;
         public bool is_student;
-
+        public string teaching_subject;
 
 
         //these are the properties 
@@ -61,7 +56,7 @@ namespace Edu_Portal
         }
 
 
-        public Profile(string n, string p, string r, string e, string g, bool student)  //this is the first constructor that takes in the "sign up" information
+        public Profile(string n, string p, string r, string e, string g, bool student, string t)  //this is the first constructor that takes in the "sign up" information
         {
             grade = g;
             Name = n;
@@ -69,6 +64,7 @@ namespace Edu_Portal
             RegistrationNumber = r;
             Email = e;
             is_student = student;
+            teaching_subject = t;
         }
         public Profile(string r, string p)
         {
@@ -80,18 +76,18 @@ namespace Edu_Portal
     }
     class User_Session  // a class of static variables
     {
-
         public static string name;
         public static string email;
         public static string password;
         public static string registration_number;
         public static string grade;
+        public static string teaching_subject;
     }
-
 
     class Authenticate : Profile
     {
-        public Authenticate(string n, string p, string r, string e, string g, bool student) : base(n, p, r, e, g, student) { } //this is the first constructor that we are going to call in the sign up part
+        public Authenticate(string n, string p, string r, string e, string g, bool student, string teaching_subject) : base(n, p, r, e, g, student, teaching_subject) { }
+        //this is the first constructor that we are going to call in the sign up part
         public Authenticate(string r, string p) : base(r, p) { } //this will be the constructor for the login page
         public Authenticate() { } // a default constructor that i am still not sure why i put , but its for inheritance purposes
 
@@ -106,7 +102,7 @@ namespace Edu_Portal
             return false;
         }
 
-        public void put_in_static( string placeholder)
+        public void put_in_static(string placeholder)
         {
             try
             {
@@ -141,6 +137,12 @@ namespace Edu_Portal
                             User_Session.registration_number = registrationNumber;
                             User_Session.grade = grade;
 
+                            if (!student(RegistrationNumber))
+                            {
+                                string teaching_subject = reader["Teaching_Subject"].ToString();
+                                User_Session.teaching_subject = teaching_subject;
+                            }
+
                         }
                     }
 
@@ -164,7 +166,7 @@ namespace Edu_Portal
             }
             else
             {
-                placeholder = "Teacher_Personal_Information";
+                placeholder = "Teacher_Personal_Info";
             }
 
 
@@ -202,7 +204,7 @@ namespace Edu_Portal
 
                         if (is_student)
                         {
-                            string grade = "Grade_"+Grade;
+                            string grade = "Grade_" + Grade;
                             //string grade = "Grade_" + Grade + "_Table";  fix this later
                             string grade_query = $"INSERT INTO {grade} (Student_Name, Registration_Number) VALUES (@Name, @Registration_Number)";
                             SqlCommand query_cmd = new SqlCommand(grade_query, connection);
@@ -226,6 +228,17 @@ namespace Edu_Portal
 
 
                         main_cmd.ExecuteNonQuery();
+
+                        if (!student(RegistrationNumber))
+                        {
+                            string teacher_query = $"UPDATE Teacher_Personal_Info SET Teaching_Subject = @Teaching_Subject WHERE Registration_Number = @Registration_Number";
+                            SqlCommand teacher_ = new SqlCommand(teacher_query, connection);
+                            teacher_.Parameters.AddWithValue("@Teaching_Subject", teaching_subject);
+                            teacher_.Parameters.AddWithValue("@Registration_Number", RegistrationNumber);
+
+
+                            teacher_.ExecuteNonQuery();
+                        }
                         put_in_static(placeholder);
                         //MessageBox.Show("your grade is:" + User_Session.grade);
 
@@ -267,7 +280,7 @@ namespace Edu_Portal
             }
             else if (!student(RegistrationNumber))
             {
-                placeholder = "Teacher_Personal_Information";
+                placeholder = "Teacher_Personal_Info";
             }
 
 
@@ -321,9 +334,6 @@ namespace Edu_Portal
         }
 
     }
-
-
-
     class Subject
     {
         public string total_mark = "U";
@@ -333,16 +343,16 @@ namespace Edu_Portal
 
 
         //make properties to validate this?
-         public static Subject fetch_data(string Subject)
+        public static Subject fetch_data(string Subject)
         {
-           // MessageBox.Show("I am in the fetch data");
+            // MessageBox.Show("I am in the fetch data");
             Subject sub = new Subject();
             string grade = User_Session.grade;
             string registration_number = User_Session.registration_number;
             string Grade;
 
-            MessageBox.Show(grade);
-            MessageBox.Show(registration_number);
+            //MessageBox.Show(grade);
+           // MessageBox.Show(registration_number);
             if (grade == "12")
             {
                 Grade = "Grade_12";
@@ -365,40 +375,42 @@ namespace Edu_Portal
             //string table = "Grade_" + grade + "_Table";
 
 
-            try {  
-                
-                
-            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
 
-                connection.Open();
+
+                var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+
+                    connection.Open();
                     //MessageBox.Show(Grade);
 
                     string get_query = $"SELECT * FROM {Grade} WHERE Registration_Number = @RegistrationNumber";
-                    using (SqlCommand get_cmd = new SqlCommand(get_query, connection)) { 
-
-                           get_cmd.Parameters.AddWithValue("@RegistrationNumber", registration_number);
-
-
-                    using (SqlDataReader reader = get_cmd.ExecuteReader())
+                    using (SqlCommand get_cmd = new SqlCommand(get_query, connection))
                     {
-                        if (reader.Read())
+
+                        get_cmd.Parameters.AddWithValue("@RegistrationNumber", registration_number);
+
+
+                        using (SqlDataReader reader = get_cmd.ExecuteReader())
                         {
+                            if (reader.Read())
+                            {
 
-                           if(sub.final_mark != null)
+                                if (sub.final_mark != null)
                                     sub.final_mark = reader[$"{Subject}_Final_Mark"].ToString();
-                                
-                           if(sub.total_mark !=null)
-                                sub.total_mark = reader[$"{Subject}_Total_Mark"].ToString();
 
-                           if(sub.assignment_mark != null)
-                                sub.assignment_mark = reader[$"{Subject}_Assignments_Mark"].ToString();
+                                if (sub.total_mark != null)
+                                    sub.total_mark = reader[$"{Subject}_Total_Mark"].ToString();
 
-                           if(sub.midterm_mark !=null)
-                                sub.midterm_mark = reader[$"{Subject}_Midterm_Mark"].ToString();
+                                if (sub.assignment_mark != null)
+                                    sub.assignment_mark = reader[$"{Subject}_Assignments_Mark"].ToString();
 
-                            //MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
+                                if (sub.midterm_mark != null)
+                                    sub.midterm_mark = reader[$"{Subject}_Midterm_Mark"].ToString();
+
+                                //MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
 
                             }
 
@@ -410,8 +422,9 @@ namespace Edu_Portal
 
                         }
 
-                }}
-               
+                    }
+                }
+
 
 
                 //ignore all this
@@ -428,42 +441,40 @@ namespace Edu_Portal
 
             return sub;
 
-        } }
+        }
+    }
+    abstract class User 
+    {
+        public abstract void open_dashboard();
+        public abstract void results();
+    }
 
+    class Student : User
+    {
+        public Subject[] subjects;
 
-
-abstract class User
-{
-    public abstract void open_dashboard();
-    public abstract void results();
-}
-
-class Student : User
-{
-    public Subject[] subjects;
-
-    public Student()
+        public Student()
         {
             subjects = new Subject[3];
         }
-    public override void open_dashboard()
-    {
-        Student_Dashboard student = new Student_Dashboard();
-        student.Show();
+        public override void open_dashboard()
+        {
+            Student_Dashboard student = new Student_Dashboard();
+            student.Show();
 
-        //open the dashboard
-    }
-    public override void results()
-    {
-       
-        subjects[0] = Subject.fetch_data("Science");
+            //open the dashboard
+        }
+        public override void results()
+        {
 
-         if (subjects[0].final_mark == null) 
-        MessageBox.Show(subjects[0].final_mark);
+            subjects[0] = Subject.fetch_data("Science");
+
+            if (subjects[0].final_mark == null)
+                MessageBox.Show(subjects[0].final_mark);
 
 
             subjects[1] = Subject.fetch_data("Math");
-        subjects[2] = Subject.fetch_data("English");
+            subjects[2] = Subject.fetch_data("English");
 
 
             //Makes three objects for each subject
@@ -472,50 +483,61 @@ class Student : User
             //puts everything in its respective object
             //adds the object to the array
         }
-}
-
-class Teacher : User
-{
-    public DataTable Student_Grades = new DataTable();
-    public override void open_dashboard()
-    {
-        Teacher_Dashboard teacher = new Teacher_Dashboard();
-        teacher.Show();
     }
-    public override void results()
-    { 
+
+    class Teacher : User
+    {
+        //this is the data where we are going to insert the grades in, it reflects the actual database
+        public DataTable Student_Grades = new DataTable();
+        private SqlDataAdapter adapter;
+        //static variables from User_Session Class
+        string grade = User_Session.grade;
+        string subject = User_Session.teaching_subject;
+
+        //we are going to use this to fill that database
+     
+        public override void open_dashboard()
+        {
+            Teacher_Dashboard teacher = new Teacher_Dashboard();
+            teacher.Show();
+        }
+        public override void results()
+        {
 
             var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
-            string grade = User_Session.grade;
-
-            using (SqlConnection connection = new SqlConnection(connectionString)) //basically use this object within this scope
+            using (SqlConnection connection = new SqlConnection(connectionString)) 
             {
                 connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM Grade_{grade}", connection);
+                 adapter = new SqlDataAdapter($@"SELECT Student_Name, Registration_Number, {subject}_Total_Mark, {subject}_Final_Mark, {subject}_Midterm_Mark, {subject}_Assignments_Mark FROM Grade_{grade}", connection);
                 adapter.Fill(Student_Grades);
-
-
             }
-                //DONE
-                //Takes the grade that the teacher teaches
-                //Puts the Entire Database in the dataset
-                //so it can be displayed in a datagrid
+            
+        }
 
+        public void Save_Data()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter($@"SELECT Student_Name, Registration_Number, {subject}_Total_Mark, {subject}_Final_Mark, {subject}_Midterm_Mark, {subject}_Assignments_Mark FROM Grade_{grade}", conn);
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(adapter);
+                adapter.Update(Student_Grades);
             }
+        }
 
 
 
-            public void Materials()
-    {
-        //The teacher should be able to add a Google drive link with all the materials
-        //no need to implement a database for it or anything
-        //still not sure if i do need to even implement this or not
+        public void Materials()
+        {
+            //The teacher should be able to add a Google drive link with all the materials
+            //no need to implement a database for it or anything
+            //still not sure if i do need to even implement this or not
+        }
     }
-}
 
 
-    class Settings
+    class Settings:Authenticate
     {
         public void change_password(string registration_num)
         {
@@ -533,20 +555,24 @@ class Teacher : User
 
 
 
-        internal static class Program
+    internal static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            /// <summary>
-            /// The main entry point for the application.
-            /// </summary>
-            [STAThread]
-            static void Main()
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                SignUp signup = new SignUp();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            SignUp signup = new SignUp();
 
-                Application.Run(new SignUp());
-            }
+            Application.Run(new SignUp());
         }
     }
+}
 
+
+
+
+//Results Page bt3t el teacher wl student
