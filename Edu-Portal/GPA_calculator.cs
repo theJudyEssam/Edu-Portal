@@ -143,9 +143,8 @@ namespace Edu_Portal
 
         private void back_Click(object sender, EventArgs e)
         {
-            Student_Dashboard student = new Student_Dashboard();
-            student.Show();
-            this.Hide();
+           Authenticate.go_back();
+           this.Hide();
         }
     }
 }

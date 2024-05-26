@@ -33,21 +33,14 @@
             this.Email = new System.Windows.Forms.Label();
             this.result = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.calc = new System.Windows.Forms.PictureBox();
             this.gpa = new System.Windows.Forms.Button();
-            this.log_icon = new System.Windows.Forms.PictureBox();
-            this.set_icon = new System.Windows.Forms.PictureBox();
-            this.result_icon = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.Button();
-            this.mat = new System.Windows.Forms.PictureBox();
             this.setting = new System.Windows.Forms.Button();
             this.material = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.TextBox();
-            this.edu_icon = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.quote = new System.Windows.Forms.TextBox();
-            this.study = new System.Windows.Forms.PictureBox();
             this.welcome = new System.Windows.Forms.TextBox();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -60,19 +53,26 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.Label();
             this.na = new System.Windows.Forms.Label();
+            this.study = new System.Windows.Forms.PictureBox();
+            this.calc = new System.Windows.Forms.PictureBox();
+            this.log_icon = new System.Windows.Forms.PictureBox();
+            this.set_icon = new System.Windows.Forms.PictureBox();
+            this.result_icon = new System.Windows.Forms.PictureBox();
+            this.mat = new System.Windows.Forms.PictureBox();
+            this.edu_icon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.study)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.log_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.set_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.result_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edu_icon)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.study)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -143,19 +143,8 @@
             this.panel1.Location = new System.Drawing.Point(9, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 768);
+            this.panel1.Size = new System.Drawing.Size(220, 726);
             this.panel1.TabIndex = 6;
-            // 
-            // calc
-            // 
-            this.calc.Image = global::Edu_Portal.Properties.Resources.clipboard;
-            this.calc.Location = new System.Drawing.Point(17, 362);
-            this.calc.Margin = new System.Windows.Forms.Padding(2);
-            this.calc.Name = "calc";
-            this.calc.Size = new System.Drawing.Size(59, 45);
-            this.calc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.calc.TabIndex = 9;
-            this.calc.TabStop = false;
             // 
             // gpa
             // 
@@ -173,47 +162,11 @@
             this.gpa.UseVisualStyleBackColor = false;
             this.gpa.Click += new System.EventHandler(this.gpa_Click);
             // 
-            // log_icon
-            // 
-            this.log_icon.Image = global::Edu_Portal.Properties.Resources.log_out;
-            this.log_icon.Location = new System.Drawing.Point(17, 707);
-            this.log_icon.Margin = new System.Windows.Forms.Padding(2);
-            this.log_icon.Name = "log_icon";
-            this.log_icon.Size = new System.Drawing.Size(59, 45);
-            this.log_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.log_icon.TabIndex = 7;
-            this.log_icon.TabStop = false;
-            this.log_icon.Click += new System.EventHandler(this.log_icon_Click);
-            // 
-            // set_icon
-            // 
-            this.set_icon.Image = global::Edu_Portal.Properties.Resources.settings;
-            this.set_icon.Location = new System.Drawing.Point(17, 428);
-            this.set_icon.Margin = new System.Windows.Forms.Padding(2);
-            this.set_icon.Name = "set_icon";
-            this.set_icon.Size = new System.Drawing.Size(59, 45);
-            this.set_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.set_icon.TabIndex = 7;
-            this.set_icon.TabStop = false;
-            this.set_icon.Click += new System.EventHandler(this.set_icon_Click);
-            // 
-            // result_icon
-            // 
-            this.result_icon.Image = global::Edu_Portal.Properties.Resources.results;
-            this.result_icon.Location = new System.Drawing.Point(17, 298);
-            this.result_icon.Margin = new System.Windows.Forms.Padding(2);
-            this.result_icon.Name = "result_icon";
-            this.result_icon.Size = new System.Drawing.Size(59, 45);
-            this.result_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.result_icon.TabIndex = 7;
-            this.result_icon.TabStop = false;
-            this.result_icon.Click += new System.EventHandler(this.result_icon_Click);
-            // 
             // logout
             // 
             this.logout.BackColor = System.Drawing.Color.LightSteelBlue;
             this.logout.ForeColor = System.Drawing.Color.Navy;
-            this.logout.Location = new System.Drawing.Point(17, 707);
+            this.logout.Location = new System.Drawing.Point(16, 584);
             this.logout.Margin = new System.Windows.Forms.Padding(2);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(182, 45);
@@ -221,18 +174,7 @@
             this.logout.Text = "Log Out";
             this.logout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.logout.UseVisualStyleBackColor = false;
-            // 
-            // mat
-            // 
-            this.mat.Image = global::Edu_Portal.Properties.Resources.material;
-            this.mat.Location = new System.Drawing.Point(17, 231);
-            this.mat.Margin = new System.Windows.Forms.Padding(2);
-            this.mat.Name = "mat";
-            this.mat.Size = new System.Drawing.Size(59, 45);
-            this.mat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.mat.TabIndex = 11;
-            this.mat.TabStop = false;
-            this.mat.Click += new System.EventHandler(this.mat_Click);
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // setting
             // 
@@ -276,22 +218,6 @@
             this.title.Text = "Edu Portal";
             this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // edu_icon
-            // 
-            this.edu_icon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.edu_icon.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.edu_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.edu_icon.Image = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
-            this.edu_icon.InitialImage = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
-            this.edu_icon.Location = new System.Drawing.Point(43, 16);
-            this.edu_icon.Margin = new System.Windows.Forms.Padding(2);
-            this.edu_icon.Name = "edu_icon";
-            this.edu_icon.Size = new System.Drawing.Size(124, 125);
-            this.edu_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.edu_icon.TabIndex = 7;
-            this.edu_icon.TabStop = false;
-            this.edu_icon.Visible = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -321,23 +247,13 @@
             this.quote.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.quote.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quote.ForeColor = System.Drawing.Color.Lavender;
-            this.quote.Location = new System.Drawing.Point(74, 86);
+            this.quote.Location = new System.Drawing.Point(40, 88);
             this.quote.Margin = new System.Windows.Forms.Padding(2);
             this.quote.Name = "quote";
             this.quote.Size = new System.Drawing.Size(213, 27);
             this.quote.TabIndex = 3;
             this.quote.Text = "STAY UPDATED !";
-            // 
-            // study
-            // 
-            this.study.Image = global::Edu_Portal.Properties.Resources.educational_tool;
-            this.study.Location = new System.Drawing.Point(382, 11);
-            this.study.Margin = new System.Windows.Forms.Padding(2);
-            this.study.Name = "study";
-            this.study.Size = new System.Drawing.Size(160, 134);
-            this.study.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.study.TabIndex = 2;
-            this.study.TabStop = false;
+            this.quote.TextChanged += new System.EventHandler(this.quote_TextChanged);
             // 
             // welcome
             // 
@@ -425,7 +341,7 @@
             this.panel5.Location = new System.Drawing.Point(260, 509);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(566, 253);
+            this.panel5.Size = new System.Drawing.Size(566, 227);
             this.panel5.TabIndex = 11;
             // 
             // course
@@ -448,7 +364,7 @@
             this.panel6.Location = new System.Drawing.Point(836, 368);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(303, 394);
+            this.panel6.Size = new System.Drawing.Size(303, 368);
             this.panel6.TabIndex = 12;
             // 
             // textBox1
@@ -486,13 +402,99 @@
             this.na.TabIndex = 6;
             this.na.Text = "hello";
             // 
+            // study
+            // 
+            this.study.Image = global::Edu_Portal.Properties.Resources.educational_tool;
+            this.study.Location = new System.Drawing.Point(382, 11);
+            this.study.Margin = new System.Windows.Forms.Padding(2);
+            this.study.Name = "study";
+            this.study.Size = new System.Drawing.Size(160, 134);
+            this.study.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.study.TabIndex = 2;
+            this.study.TabStop = false;
+            // 
+            // calc
+            // 
+            this.calc.Image = global::Edu_Portal.Properties.Resources.clipboard;
+            this.calc.Location = new System.Drawing.Point(17, 362);
+            this.calc.Margin = new System.Windows.Forms.Padding(2);
+            this.calc.Name = "calc";
+            this.calc.Size = new System.Drawing.Size(59, 45);
+            this.calc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.calc.TabIndex = 9;
+            this.calc.TabStop = false;
+            // 
+            // log_icon
+            // 
+            this.log_icon.Image = global::Edu_Portal.Properties.Resources.log_out;
+            this.log_icon.Location = new System.Drawing.Point(16, 584);
+            this.log_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.log_icon.Name = "log_icon";
+            this.log_icon.Size = new System.Drawing.Size(59, 45);
+            this.log_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.log_icon.TabIndex = 7;
+            this.log_icon.TabStop = false;
+            this.log_icon.Click += new System.EventHandler(this.log_icon_Click);
+            // 
+            // set_icon
+            // 
+            this.set_icon.Image = global::Edu_Portal.Properties.Resources.settings;
+            this.set_icon.Location = new System.Drawing.Point(17, 428);
+            this.set_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.set_icon.Name = "set_icon";
+            this.set_icon.Size = new System.Drawing.Size(59, 45);
+            this.set_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.set_icon.TabIndex = 7;
+            this.set_icon.TabStop = false;
+            this.set_icon.Click += new System.EventHandler(this.set_icon_Click);
+            // 
+            // result_icon
+            // 
+            this.result_icon.Image = global::Edu_Portal.Properties.Resources.results;
+            this.result_icon.Location = new System.Drawing.Point(17, 298);
+            this.result_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.result_icon.Name = "result_icon";
+            this.result_icon.Size = new System.Drawing.Size(59, 45);
+            this.result_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.result_icon.TabIndex = 7;
+            this.result_icon.TabStop = false;
+            this.result_icon.Click += new System.EventHandler(this.result_icon_Click);
+            // 
+            // mat
+            // 
+            this.mat.Image = global::Edu_Portal.Properties.Resources.material;
+            this.mat.Location = new System.Drawing.Point(17, 231);
+            this.mat.Margin = new System.Windows.Forms.Padding(2);
+            this.mat.Name = "mat";
+            this.mat.Size = new System.Drawing.Size(59, 45);
+            this.mat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mat.TabIndex = 11;
+            this.mat.TabStop = false;
+            this.mat.Click += new System.EventHandler(this.mat_Click);
+            // 
+            // edu_icon
+            // 
+            this.edu_icon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.edu_icon.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.edu_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.edu_icon.Image = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
+            this.edu_icon.InitialImage = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
+            this.edu_icon.Location = new System.Drawing.Point(43, -5);
+            this.edu_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.edu_icon.Name = "edu_icon";
+            this.edu_icon.Size = new System.Drawing.Size(124, 125);
+            this.edu_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.edu_icon.TabIndex = 7;
+            this.edu_icon.TabStop = false;
+            this.edu_icon.Visible = false;
+            // 
             // Teacher_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1168, 787);
+            this.ClientSize = new System.Drawing.Size(1168, 772);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -505,23 +507,23 @@
             this.Load += new System.EventHandler(this.Teacher_Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.log_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.set_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.result_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edu_icon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.study)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.study)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.log_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.set_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.result_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edu_icon)).EndInit();
             this.ResumeLayout(false);
 
         }

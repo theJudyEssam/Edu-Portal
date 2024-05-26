@@ -40,30 +40,42 @@ namespace Edu_Portal
         {
             Student_Results student = new Student_Results();
             student.Show();
+            this.Hide();
         }
 
         private void Student_Profile_Click(object sender, EventArgs e)
         {
             Student_Profile student_profile = new Student_Profile();
             student_profile.Show();
+            this.Hide();
         }
 
         private void res_Click(object sender, EventArgs e)
         {
             Student_Results results = new Student_Results();
             results.Show();
+            this.Hide();
         }
 
         private void gpaaa_Click(object sender, EventArgs e)
         {
             GPA_calculator gpa = new GPA_calculator();
             gpa.Show();
+            this.Hide();
         }
 
         private void settingss_Click(object sender, EventArgs e)
         {
             Student_Profile student = new Student_Profile();
             student.Show();
+            this.Hide();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            SignUp sign = new SignUp();
+            sign.Show();
+            this.Hide();
         }
     }
 }

@@ -49,17 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Email_Change.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Email_Change.Designer.cs">
+      <DependentUpon>Email_Change.cs</DependentUpon>
     </Compile>
     <Compile Include="GPA_calculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GPA_calculator.Designer.cs">
       <DependentUpon>GPA_calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Password Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Password Change.Designer.cs">
+      <DependentUpon>Password Change.cs</DependentUpon>
     </Compile>
     <Compile Include="Student_Profile.cs">
       <SubType>Form</SubType>
@@ -111,14 +117,17 @@
     <Compile Include="Teacher_Results_Page.Designer.cs">
       <DependentUpon>Teacher_Results_Page.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Email_Change.resx">
+      <DependentUpon>Email_Change.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GPA_calculator.resx">
       <DependentUpon>GPA_calculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Password Change.resx">
+      <DependentUpon>Password Change.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

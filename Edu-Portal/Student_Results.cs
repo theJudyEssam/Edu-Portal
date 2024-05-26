@@ -49,5 +49,11 @@ namespace Edu_Portal
             e_assignments_mark.Text = english.assignment_mark;
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Authenticate.go_back();
+            this.Hide();
+        }
     }
 }

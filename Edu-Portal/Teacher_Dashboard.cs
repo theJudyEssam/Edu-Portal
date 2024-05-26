@@ -33,6 +33,7 @@ namespace Edu_Portal
         {
             Teacher_Results_Page results = new Teacher_Results_Page();
             results.Show();
+            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -79,12 +80,26 @@ namespace Edu_Portal
         {
             Teacher_Profile profile = new Teacher_Profile();
             profile.Show();
+            this.Hide();
         }
 
         private void gpa_Click(object sender, EventArgs e)
         {
             GPA_calculator gPA = new GPA_calculator();
             gPA.Show();
+            this.Hide();
+        }
+
+        private void quote_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            SignUp sign = new SignUp();
+            sign.Show();
+            this.Hide();
         }
     }
 }

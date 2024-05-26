@@ -30,5 +30,11 @@ namespace Edu_Portal
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Authenticate.go_back();
+            this.Hide();
+        }
     }
 }

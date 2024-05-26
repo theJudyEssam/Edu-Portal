@@ -59,7 +59,7 @@ namespace Edu_Portal
 
             //add validation
 
-            if ((!auth.student(ID) && is_student) || (auth.student(ID) && !is_student))
+            if ((!Authenticate.student(ID) && is_student) || (Authenticate.student(ID) && !is_student))
             {
                 MessageBox.Show("Registration Number Invalid", "Error");
                 sign_name_s.Text = string.Empty;

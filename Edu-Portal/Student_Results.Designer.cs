@@ -63,6 +63,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.e_total_mark = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,6 +76,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -456,6 +458,19 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "Total Mark";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.AliceBlue;
+            this.button3.Location = new System.Drawing.Point(8, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(48, 32);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "<--";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Student_Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -526,5 +541,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label e_total_mark;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button3;
     }
 }

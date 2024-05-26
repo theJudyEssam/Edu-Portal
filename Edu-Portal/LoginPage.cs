@@ -77,7 +77,7 @@ namespace Edu_Portal
             string password = password_login.Text;
 
             Authenticate auth = new Authenticate(registration, password);
-            if (auth.student(registration))
+            if (Authenticate.student(registration))
             {
                 user = new Student();
             }

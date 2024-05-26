@@ -30,7 +30,20 @@ namespace Edu_Portal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Password_Change password = new Password_Change();
+            password.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Email_Change email = new Email_Change();
+            email.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+          Authenticate.go_back();
+          this.Hide();
         }
     }
 }

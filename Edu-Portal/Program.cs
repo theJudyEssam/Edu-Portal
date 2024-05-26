@@ -86,7 +86,7 @@ namespace Edu_Portal
         public Authenticate() { } 
 
 
-        public bool student(string Reg) //checks if the registration number belongs to the student or the teacher.
+        static public bool student(string Reg) //checks if the registration number belongs to the student or the teacher.
         {
             //IF THE REGISTRATION NUMBER STARTS WITH A "2"
             if (Reg[0] == '2')
@@ -96,8 +96,9 @@ namespace Edu_Portal
             return false;
         }
 
-        public void put_in_static(string placeholder)  //puts the credentials in a static variable
+        protected void put_in_static(string placeholder, string p, string r)  //puts the credentials in a static variable
         {
+           // MessageBox.Show("p is" + p);
             try
             {
                 var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
@@ -107,8 +108,8 @@ namespace Edu_Portal
                     connection.Open();
                     string get_query = $"SELECT * FROM {placeholder} WHERE Registration_Number = @RegistrationNumber AND Password = @Password";
                     SqlCommand get_cmd = new SqlCommand(get_query, connection);
-                    get_cmd.Parameters.AddWithValue("@Password", Password);
-                    get_cmd.Parameters.AddWithValue("@RegistrationNumber", RegistrationNumber);
+                    get_cmd.Parameters.AddWithValue("@Password", p);
+                    get_cmd.Parameters.AddWithValue("@RegistrationNumber", r);
 
 
                     using (SqlDataReader reader = get_cmd.ExecuteReader())
@@ -129,7 +130,7 @@ namespace Edu_Portal
                             User_Session.registration_number = registrationNumber;
                             User_Session.grade = grade;
 
-                            if (!student(RegistrationNumber))  //if the user is a teacher, add the subject that they teach too.
+                            if (!student(r))  //if the user is a teacher, add the subject that they teach too.
                             {
                                 string teaching_subject = reader["Teaching_Subject"].ToString();
                                 User_Session.teaching_subject = teaching_subject;
@@ -217,7 +218,7 @@ namespace Edu_Portal
 
                             teacher_.ExecuteNonQuery();
                         }
-                        put_in_static(placeholder);
+                        put_in_static(placeholder, Password, RegistrationNumber);
                         //MessageBox.Show("your grade is:" + User_Session.grade);
 
                         return "OK";  
@@ -272,7 +273,7 @@ namespace Edu_Portal
                         //now u need to make a User_Session thing and make it accessbile throughout the whole thing.
                         //store the variables in the static class 
 
-                        put_in_static(placeholder); //i just made it in a whole other function
+                        put_in_static(placeholder, Password, RegistrationNumber); //i just made it in a whole other function
                         return true;
 
 
@@ -290,6 +291,24 @@ namespace Edu_Portal
                 MessageBox.Show(e.Message);
             }
             return false;
+        }
+
+
+        static public void go_back()
+        {
+            User user;
+            //user = Authenticate.student(User_Session.registration_number) ? new Student() : new Teacher();
+            if (student(User_Session.registration_number))
+            {
+                user = new Student();
+            }
+            else
+            {
+                user = new Teacher();
+            }
+
+
+            user.open_dashboard();
         }
 
     }
@@ -344,7 +363,7 @@ namespace Edu_Portal
                                 if (sub.midterm_mark != null)
                                     sub.midterm_mark = reader[$"{Subject}_Midterm_Mark"].ToString();
 
-                                MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
+                                //MessageBox.Show($"Data fetched for {Subject}: FinalMark={sub.final_mark}, TotalMark={sub.total_mark}, AssignmentMark={sub.assignment_mark}, MidtermMark={sub.midterm_mark}");
 
                             }
 
@@ -461,18 +480,59 @@ namespace Edu_Portal
 
    class Settings:Authenticate
         {
-            public void change_password(string registration_num,string new_password)
+        
+        public bool change_password(string new_password, string old_password)
+        {
+            // we need to check if that user is a student or teacher to search in the right DB
+           // MessageBox.Show(User_Session.registration_number);
+            string placeholder = student(User_Session.registration_number) ? "Student_Personal_Info" : "Teacher_Personal_Info";
+
+
+            //we need to check if the password he typed was legit or not:
+
+            if (User_Session.password != old_password)
             {
-                
-                
-                //to change the password of the user
-                //you should change the value in the User_Session
-                //and change the value in the database
+                return false;
             }
-            public void change_email(string registration_num)
+            string new_query = $"UPDATE {placeholder} SET Password = @password WHERE Registration_Number = @Registration_Number";
+            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                //same as the change_password
+                connection.Open();
+               SqlCommand update_cmd = new SqlCommand(new_query, connection );
+                update_cmd.Parameters.AddWithValue("@Registration_Number", User_Session.registration_number);
+                update_cmd.Parameters.AddWithValue("@Password", new_password);
+                update_cmd.ExecuteNonQuery();
+
             }
+
+            put_in_static(placeholder, new_password, User_Session.registration_number);
+
+
+
+
+            return true;
+        }
+       public void change_email(string new_email)
+            {
+            string placeholder = student(User_Session.registration_number) ? "Student_Personal_Info" : "Teacher_Personal_Info";
+
+
+            string new_query = $"UPDATE {placeholder} SET Email = @Email WHERE Registration_Number = @Registration_Number";
+            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand update_cmd = new SqlCommand(new_query, connection);
+                update_cmd.Parameters.AddWithValue("@Registration_Number", User_Session.registration_number);
+                update_cmd.Parameters.AddWithValue("@Email", new_email);
+                update_cmd.ExecuteNonQuery();
+
+            }
+
+            User_Session.email = new_email;
+
+        }
 
         }
 
