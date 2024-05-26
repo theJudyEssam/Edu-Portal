@@ -38,18 +38,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Elephant", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(394, 59);
+            this.label1.Location = new System.Drawing.Point(296, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(531, 47);
+            this.label1.Size = new System.Drawing.Size(400, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Type Announcements here :";
             // 
             // txtInput
             // 
             this.txtInput.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(333, 160);
+            this.txtInput.Location = new System.Drawing.Point(250, 128);
+            this.txtInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(646, 291);
+            this.txtInput.Size = new System.Drawing.Size(486, 234);
             this.txtInput.TabIndex = 1;
             this.txtInput.Text = "";
             // 
@@ -57,9 +59,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.CadetBlue;
             this.button1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(244, 554);
+            this.button1.Location = new System.Drawing.Point(183, 443);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 74);
+            this.button1.Size = new System.Drawing.Size(164, 59);
             this.button1.TabIndex = 2;
             this.button1.Text = "Grade 11";
             this.button1.UseVisualStyleBackColor = false;
@@ -69,9 +72,10 @@
             // 
             this.button2.BackColor = System.Drawing.Color.CadetBlue;
             this.button2.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(854, 554);
+            this.button2.Location = new System.Drawing.Point(640, 443);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 74);
+            this.button2.Size = new System.Drawing.Size(164, 59);
             this.button2.TabIndex = 3;
             this.button2.Text = "Grade 12";
             this.button2.UseVisualStyleBackColor = false;
@@ -79,16 +83,18 @@
             // 
             // Announcements
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1317, 848);
+            this.ClientSize = new System.Drawing.Size(988, 678);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtInput);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Announcements";
             this.Text = "Announcement";
+            this.Load += new System.EventHandler(this.Announcements_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

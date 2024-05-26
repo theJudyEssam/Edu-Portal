@@ -76,6 +76,13 @@ namespace Edu_Portal
             string registration = registration_login.Text;
             string password = password_login.Text;
 
+
+            if(registration == "admin" && password == "admin")
+            {
+                Administration login = new Administration();
+                login.Show();
+            }
+            else { 
             Authenticate auth = new Authenticate(registration, password);
             if (Authenticate.student(registration))
             {
@@ -96,7 +103,7 @@ namespace Edu_Portal
             else
             {
                 MessageBox.Show("Error bruh");
-            }
+            }}
         }
     }
 }

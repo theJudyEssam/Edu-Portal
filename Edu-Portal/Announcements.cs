@@ -47,5 +47,10 @@ namespace Edu_Portal
             MessageBox.Show("Data saved!");
             txtInput.Clear();
         }
+
+        private void Announcements_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
