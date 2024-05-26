@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,60 @@ namespace Edu_Portal
             SignUp sign = new SignUp();
             sign.Show();
             this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstDisplay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string grade = User_Session.grade;
+            if(grade == "11")
+            {
+                string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(documentsPath, "Data_11.txt");
+
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    lstDisplay.Items.Clear();
+                    foreach (string line in lines)
+                    {
+                        lstDisplay.Items.Add(line);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File not found!");
+                }
+            }
+
+            if(grade == "12")
+            {
+                string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(documentsPath, "Data_12.txt");
+
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    lstDisplay.Items.Clear();
+                    foreach (string line in lines)
+                    {
+                        lstDisplay.Items.Add(line);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File not found!");
+                }
+            }
         }
     }
 }

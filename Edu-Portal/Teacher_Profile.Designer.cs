@@ -61,9 +61,10 @@
             this.panel1.Controls.Add(this.U_Grade);
             this.panel1.Controls.Add(this.User_Registration);
             this.panel1.Controls.Add(this.Email_Name);
-            this.panel1.Location = new System.Drawing.Point(36, 216);
+            this.panel1.Location = new System.Drawing.Point(48, 270);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 328);
+            this.panel1.Size = new System.Drawing.Size(395, 410);
             this.panel1.TabIndex = 5;
             // 
             // button2
@@ -71,9 +72,10 @@
             this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.button2.Location = new System.Drawing.Point(40, 256);
+            this.button2.Location = new System.Drawing.Point(53, 320);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(208, 40);
+            this.button2.Size = new System.Drawing.Size(277, 50);
             this.button2.TabIndex = 7;
             this.button2.Text = "Change Email";
             this.button2.UseVisualStyleBackColor = false;
@@ -83,9 +85,10 @@
             this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.button1.Location = new System.Drawing.Point(40, 200);
+            this.button1.Location = new System.Drawing.Point(53, 250);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 40);
+            this.button1.Size = new System.Drawing.Size(277, 50);
             this.button1.TabIndex = 6;
             this.button1.Text = "Change Password";
             this.button1.UseVisualStyleBackColor = false;
@@ -94,18 +97,20 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel4.Controls.Add(this.User_Grade);
-            this.panel4.Location = new System.Drawing.Point(72, 128);
+            this.panel4.Location = new System.Drawing.Point(96, 160);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 48);
+            this.panel4.Size = new System.Drawing.Size(267, 60);
             this.panel4.TabIndex = 5;
             // 
             // User_Grade
             // 
             this.User_Grade.AutoSize = true;
             this.User_Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.User_Grade.Location = new System.Drawing.Point(8, 16);
+            this.User_Grade.Location = new System.Drawing.Point(11, 20);
+            this.User_Grade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.User_Grade.Name = "User_Grade";
-            this.User_Grade.Size = new System.Drawing.Size(58, 22);
+            this.User_Grade.Size = new System.Drawing.Size(79, 29);
             this.User_Grade.TabIndex = 1;
             this.User_Grade.Text = "label4";
             // 
@@ -113,18 +118,20 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel3.Controls.Add(this.User_ID);
-            this.panel3.Location = new System.Drawing.Point(72, 72);
+            this.panel3.Location = new System.Drawing.Point(96, 90);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 48);
+            this.panel3.Size = new System.Drawing.Size(267, 60);
             this.panel3.TabIndex = 4;
             // 
             // User_ID
             // 
             this.User_ID.AutoSize = true;
             this.User_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.User_ID.Location = new System.Drawing.Point(8, 16);
+            this.User_ID.Location = new System.Drawing.Point(11, 20);
+            this.User_ID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.User_ID.Name = "User_ID";
-            this.User_ID.Size = new System.Drawing.Size(58, 22);
+            this.User_ID.Size = new System.Drawing.Size(79, 29);
             this.User_ID.TabIndex = 1;
             this.User_ID.Text = "label4";
             this.User_ID.Click += new System.EventHandler(this.User_ID_Click);
@@ -133,18 +140,20 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel2.Controls.Add(this.User_name);
-            this.panel2.Location = new System.Drawing.Point(72, 16);
+            this.panel2.Location = new System.Drawing.Point(96, 20);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 48);
+            this.panel2.Size = new System.Drawing.Size(267, 60);
             this.panel2.TabIndex = 3;
             // 
             // User_name
             // 
             this.User_name.AutoSize = true;
             this.User_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.User_name.Location = new System.Drawing.Point(8, 16);
+            this.User_name.Location = new System.Drawing.Point(11, 20);
+            this.User_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.User_name.Name = "User_name";
-            this.User_name.Size = new System.Drawing.Size(58, 22);
+            this.User_name.Size = new System.Drawing.Size(79, 29);
             this.User_name.TabIndex = 0;
             this.User_name.Text = "label4";
             // 
@@ -153,9 +162,10 @@
             this.U_Grade.AutoSize = true;
             this.U_Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.U_Grade.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.U_Grade.Location = new System.Drawing.Point(8, 144);
+            this.U_Grade.Location = new System.Drawing.Point(11, 180);
+            this.U_Grade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.U_Grade.Name = "U_Grade";
-            this.U_Grade.Size = new System.Drawing.Size(59, 20);
+            this.U_Grade.Size = new System.Drawing.Size(77, 26);
             this.U_Grade.TabIndex = 2;
             this.U_Grade.Text = "Grade";
             // 
@@ -164,9 +174,10 @@
             this.User_Registration.AutoSize = true;
             this.User_Registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.User_Registration.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.User_Registration.Location = new System.Drawing.Point(24, 88);
+            this.User_Registration.Location = new System.Drawing.Point(32, 110);
+            this.User_Registration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.User_Registration.Name = "User_Registration";
-            this.User_Registration.Size = new System.Drawing.Size(28, 20);
+            this.User_Registration.Size = new System.Drawing.Size(36, 26);
             this.User_Registration.TabIndex = 1;
             this.User_Registration.Text = "ID";
             // 
@@ -174,9 +185,10 @@
             // 
             this.Email_Name.AutoSize = true;
             this.Email_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email_Name.Location = new System.Drawing.Point(16, 32);
+            this.Email_Name.Location = new System.Drawing.Point(21, 40);
+            this.Email_Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Email_Name.Name = "Email_Name";
-            this.Email_Name.Size = new System.Drawing.Size(53, 20);
+            this.Email_Name.Size = new System.Drawing.Size(73, 26);
             this.Email_Name.TabIndex = 0;
             this.Email_Name.Text = "Email";
             // 
@@ -185,9 +197,10 @@
             this.Student_Name.AutoSize = true;
             this.Student_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
             this.Student_Name.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Student_Name.Location = new System.Drawing.Point(144, 160);
+            this.Student_Name.Location = new System.Drawing.Point(192, 200);
+            this.Student_Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Student_Name.Name = "Student_Name";
-            this.Student_Name.Size = new System.Drawing.Size(87, 30);
+            this.Student_Name.Size = new System.Drawing.Size(115, 39);
             this.Student_Name.TabIndex = 4;
             this.Student_Name.Text = "label1";
             // 
@@ -195,9 +208,11 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = global::Edu_Portal.Properties.Resources.settings;
-            this.pictureBox1.Location = new System.Drawing.Point(128, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(171, 40);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 112);
+            this.pictureBox1.Size = new System.Drawing.Size(149, 140);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -206,9 +221,10 @@
             this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.button3.Location = new System.Drawing.Point(12, 16);
+            this.button3.Location = new System.Drawing.Point(16, 20);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 32);
+            this.button3.Size = new System.Drawing.Size(64, 40);
             this.button3.TabIndex = 8;
             this.button3.Text = "<--";
             this.button3.UseVisualStyleBackColor = false;
@@ -216,13 +232,14 @@
             // 
             // Teacher_Profile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 586);
+            this.ClientSize = new System.Drawing.Size(503, 732);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Student_Name);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Teacher_Profile";
             this.Text = "Teacher_Profile";
             this.Load += new System.EventHandler(this.Teacher_Profile_Load);

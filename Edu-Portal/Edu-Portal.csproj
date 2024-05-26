@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Announcements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Announcements.Designer.cs">
+      <DependentUpon>Announcements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration.Designer.cs">
+      <DependentUpon>Administration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Email_Change.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     <Compile Include="Teacher_Results_Page.Designer.cs">
       <DependentUpon>Teacher_Results_Page.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Announcements.resx">
+      <DependentUpon>Announcements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration.resx">
+      <DependentUpon>Administration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Email_Change.resx">
       <DependentUpon>Email_Change.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GPA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
