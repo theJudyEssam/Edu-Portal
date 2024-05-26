@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +39,24 @@ namespace Edu_Portal
         {
 
         }
+        private bool validate(string name, string email, string password, string ID)
+        {
+            bool name_flag = false;
+            bool email_flag = false;
+            bool password_flag = false;
+            bool ID_flag = false;
 
+            name_flag = name.Any(char.IsDigit);
+            var pattern = @"^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
+            var regex = new Regex(pattern);
+            email_flag = regex.IsMatch(email);
+
+            password_flag = password.Length < 8 ? false : true;
+            ID_flag = (ID.Length != 9 || ID.Any(char.IsLetter)) ? false : true;
+
+
+            return name_flag && email_flag && password_flag && ID_flag;
+        }
         public void button1_Click(object sender, EventArgs e)
         {
 
@@ -54,11 +73,13 @@ namespace Edu_Portal
                 teaching_subject = Subject_ComboBox.Text;
             }
 
+
+
            // Profile profile = new Profile(name, password, ID, email, grade,is_student);
             Authenticate auth = new Authenticate(name, password, ID, email, grade, is_student, teaching_subject);
 
             //add validation
-
+            if(validate(name, email, password, ID)) { 
             if ((!Authenticate.student(ID) && is_student) || (Authenticate.student(ID) && !is_student))
             {
                 MessageBox.Show("Registration Number Invalid", "Error");
@@ -112,7 +133,11 @@ namespace Edu_Portal
 
             }
 
-
+        }
+            else
+            {
+                MessageBox.Show("The credentials are invalid.");
+            }
 
             //    //if the thing is a teacher, then user = teacher
             //    //else if the thing is a student then user = student
