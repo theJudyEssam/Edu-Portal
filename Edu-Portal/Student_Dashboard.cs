@@ -24,11 +24,11 @@ namespace Edu_Portal
 
         private void Student_Dashboard_Load(object sender, EventArgs e)
         {
-            name.Text = "Name: " + User_Session.name;
-            email.Text ="Email: " +  User_Session.email;
-            password.Text = "Password: " + User_Session.password;
-            registration_num.Text = "Registration Number: "+ User_Session.registration_number;
-            grade.Text = "Grade: "+User_Session.grade;
+            //name.Text = "Name: " + User_Session.name;
+            //email.Text ="Email: " +  User_Session.email;
+            //password.Text = "Password: " + User_Session.password;
+            //registration_num.Text = "Registration Number: "+ User_Session.registration_number;
+            //grade.Text = "Grade: "+User_Session.grade;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,6 +46,24 @@ namespace Edu_Portal
         {
             Student_Profile student_profile = new Student_Profile();
             student_profile.Show();
+        }
+
+        private void res_Click(object sender, EventArgs e)
+        {
+            Student_Results results = new Student_Results();
+            results.Show();
+        }
+
+        private void gpaaa_Click(object sender, EventArgs e)
+        {
+            GPA_calculator gpa = new GPA_calculator();
+            gpa.Show();
+        }
+
+        private void settingss_Click(object sender, EventArgs e)
+        {
+            Student_Profile student = new Student_Profile();
+            student.Show();
         }
     }
 }

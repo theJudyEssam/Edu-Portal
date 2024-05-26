@@ -250,7 +250,7 @@ namespace Edu_Portal
                 var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-
+                    
                     connection.Open();
 
 
@@ -461,8 +461,10 @@ namespace Edu_Portal
 
    class Settings:Authenticate
         {
-            public void change_password(string registration_num)
+            public void change_password(string registration_num,string new_password)
             {
+                
+                
                 //to change the password of the user
                 //you should change the value in the User_Session
                 //and change the value in the database

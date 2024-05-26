@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+
+
 
 namespace Edu_Portal
 {
@@ -23,6 +26,11 @@ namespace Edu_Portal
             User_Grade.Text = User_Session.grade;
             User_ID.Text = User_Session.registration_number;
             User_name.Text = User_Session.email;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

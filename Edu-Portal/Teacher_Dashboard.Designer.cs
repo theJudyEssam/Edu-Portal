@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
-            this.password = new System.Windows.Forms.Label();
-            this.Registration = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
             this.result = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,13 +51,15 @@
             this.welcome = new System.Windows.Forms.TextBox();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.na = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.TextBox();
             this.em = new System.Windows.Forms.TextBox();
             this.reg = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.course = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.id = new System.Windows.Forms.Label();
+            this.na = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.log_icon)).BeginInit();
@@ -98,34 +98,14 @@
             this.name.Text = "hello !";
             this.name.Click += new System.EventHandler(this.name_Click);
             // 
-            // password
-            // 
-            this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.password.Location = new System.Drawing.Point(96, 40);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(90, 39);
-            this.password.TabIndex = 2;
-            this.password.Text = "hello";
-            this.password.Click += new System.EventHandler(this.password_Click);
-            // 
-            // Registration
-            // 
-            this.Registration.AutoSize = true;
-            this.Registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.Registration.Location = new System.Drawing.Point(172, 78);
-            this.Registration.Name = "Registration";
-            this.Registration.Size = new System.Drawing.Size(90, 39);
-            this.Registration.TabIndex = 3;
-            this.Registration.Text = "hello";
-            // 
             // Email
             // 
             this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.Email.Location = new System.Drawing.Point(122, 132);
+            this.Email.Font = new System.Drawing.Font("Elephant", 10.125F);
+            this.Email.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Email.Location = new System.Drawing.Point(104, 136);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(90, 39);
+            this.Email.Size = new System.Drawing.Size(63, 27);
             this.Email.TabIndex = 4;
             this.Email.Text = "hello";
             // 
@@ -161,7 +141,7 @@
             this.panel1.Controls.Add(this.edu_icon);
             this.panel1.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 768);
             this.panel1.TabIndex = 6;
@@ -170,7 +150,7 @@
             // 
             this.calc.Image = global::Edu_Portal.Properties.Resources.clipboard;
             this.calc.Location = new System.Drawing.Point(17, 362);
-            this.calc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.calc.Margin = new System.Windows.Forms.Padding(2);
             this.calc.Name = "calc";
             this.calc.Size = new System.Drawing.Size(59, 45);
             this.calc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,19 +164,20 @@
             this.gpa.ForeColor = System.Drawing.Color.Navy;
             this.gpa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.gpa.Location = new System.Drawing.Point(17, 362);
-            this.gpa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpa.Margin = new System.Windows.Forms.Padding(2);
             this.gpa.Name = "gpa";
             this.gpa.Size = new System.Drawing.Size(182, 45);
             this.gpa.TabIndex = 9;
             this.gpa.Text = "GPA Calc.";
             this.gpa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.gpa.UseVisualStyleBackColor = false;
+            this.gpa.Click += new System.EventHandler(this.gpa_Click);
             // 
             // log_icon
             // 
             this.log_icon.Image = global::Edu_Portal.Properties.Resources.log_out;
             this.log_icon.Location = new System.Drawing.Point(17, 707);
-            this.log_icon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.log_icon.Margin = new System.Windows.Forms.Padding(2);
             this.log_icon.Name = "log_icon";
             this.log_icon.Size = new System.Drawing.Size(59, 45);
             this.log_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +189,7 @@
             // 
             this.set_icon.Image = global::Edu_Portal.Properties.Resources.settings;
             this.set_icon.Location = new System.Drawing.Point(17, 428);
-            this.set_icon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.set_icon.Margin = new System.Windows.Forms.Padding(2);
             this.set_icon.Name = "set_icon";
             this.set_icon.Size = new System.Drawing.Size(59, 45);
             this.set_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -220,7 +201,7 @@
             // 
             this.result_icon.Image = global::Edu_Portal.Properties.Resources.results;
             this.result_icon.Location = new System.Drawing.Point(17, 298);
-            this.result_icon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.result_icon.Margin = new System.Windows.Forms.Padding(2);
             this.result_icon.Name = "result_icon";
             this.result_icon.Size = new System.Drawing.Size(59, 45);
             this.result_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -233,7 +214,7 @@
             this.logout.BackColor = System.Drawing.Color.LightSteelBlue;
             this.logout.ForeColor = System.Drawing.Color.Navy;
             this.logout.Location = new System.Drawing.Point(17, 707);
-            this.logout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logout.Margin = new System.Windows.Forms.Padding(2);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(182, 45);
             this.logout.TabIndex = 12;
@@ -245,7 +226,7 @@
             // 
             this.mat.Image = global::Edu_Portal.Properties.Resources.material;
             this.mat.Location = new System.Drawing.Point(17, 231);
-            this.mat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mat.Margin = new System.Windows.Forms.Padding(2);
             this.mat.Name = "mat";
             this.mat.Size = new System.Drawing.Size(59, 45);
             this.mat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -259,20 +240,21 @@
             this.setting.ForeColor = System.Drawing.Color.Navy;
             this.setting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.setting.Location = new System.Drawing.Point(17, 428);
-            this.setting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.setting.Margin = new System.Windows.Forms.Padding(2);
             this.setting.Name = "setting";
             this.setting.Size = new System.Drawing.Size(182, 45);
             this.setting.TabIndex = 10;
-            this.setting.Text = "Settings";
+            this.setting.Text = "Profile";
             this.setting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.setting.UseVisualStyleBackColor = false;
+            this.setting.Click += new System.EventHandler(this.setting_Click);
             // 
             // material
             // 
             this.material.BackColor = System.Drawing.Color.LightSteelBlue;
             this.material.ForeColor = System.Drawing.Color.Navy;
             this.material.Location = new System.Drawing.Point(17, 231);
-            this.material.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.material.Margin = new System.Windows.Forms.Padding(2);
             this.material.Name = "material";
             this.material.Size = new System.Drawing.Size(182, 45);
             this.material.TabIndex = 9;
@@ -287,7 +269,7 @@
             this.title.Font = new System.Drawing.Font("Elephant", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.ForeColor = System.Drawing.Color.Navy;
             this.title.Location = new System.Drawing.Point(17, 146);
-            this.title.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.title.Margin = new System.Windows.Forms.Padding(2);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(182, 36);
             this.title.TabIndex = 8;
@@ -302,7 +284,7 @@
             this.edu_icon.Image = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
             this.edu_icon.InitialImage = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
             this.edu_icon.Location = new System.Drawing.Point(43, 16);
-            this.edu_icon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.edu_icon.Margin = new System.Windows.Forms.Padding(2);
             this.edu_icon.Name = "edu_icon";
             this.edu_icon.Size = new System.Drawing.Size(124, 125);
             this.edu_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -315,7 +297,7 @@
             this.panel2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(234, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(926, 50);
             this.panel2.TabIndex = 7;
@@ -328,7 +310,7 @@
             this.panel3.Controls.Add(this.name);
             this.panel3.Controls.Add(this.welcome);
             this.panel3.Location = new System.Drawing.Point(260, 80);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(566, 159);
             this.panel3.TabIndex = 8;
@@ -340,7 +322,7 @@
             this.quote.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quote.ForeColor = System.Drawing.Color.Lavender;
             this.quote.Location = new System.Drawing.Point(74, 86);
-            this.quote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quote.Margin = new System.Windows.Forms.Padding(2);
             this.quote.Name = "quote";
             this.quote.Size = new System.Drawing.Size(213, 27);
             this.quote.TabIndex = 3;
@@ -350,7 +332,7 @@
             // 
             this.study.Image = global::Edu_Portal.Properties.Resources.educational_tool;
             this.study.Location = new System.Drawing.Point(382, 11);
-            this.study.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.study.Margin = new System.Windows.Forms.Padding(2);
             this.study.Name = "study";
             this.study.Size = new System.Drawing.Size(160, 134);
             this.study.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -364,7 +346,7 @@
             this.welcome.Font = new System.Drawing.Font("Elephant", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcome.ForeColor = System.Drawing.Color.Blue;
             this.welcome.Location = new System.Drawing.Point(34, 34);
-            this.welcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.welcome.Margin = new System.Windows.Forms.Padding(2);
             this.welcome.Name = "welcome";
             this.welcome.Size = new System.Drawing.Size(308, 42);
             this.welcome.TabIndex = 0;
@@ -376,7 +358,7 @@
             this.calendar.Font = new System.Drawing.Font("Elephant", 7.874999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calendar.ForeColor = System.Drawing.Color.Black;
             this.calendar.Location = new System.Drawing.Point(836, 80);
-            this.calendar.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.calendar.Margin = new System.Windows.Forms.Padding(7);
             this.calendar.Name = "calendar";
             this.calendar.TabIndex = 9;
             this.calendar.TitleBackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -385,30 +367,30 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel4.Controls.Add(this.password);
-            this.panel4.Controls.Add(this.Email);
-            this.panel4.Controls.Add(this.Registration);
             this.panel4.Controls.Add(this.na);
+            this.panel4.Controls.Add(this.id);
+            this.panel4.Controls.Add(this.Email);
+            this.panel4.Controls.Add(this.label);
             this.panel4.Controls.Add(this.em);
             this.panel4.Controls.Add(this.reg);
             this.panel4.Location = new System.Drawing.Point(260, 278);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(566, 194);
             this.panel4.TabIndex = 10;
             // 
-            // na
+            // label
             // 
-            this.na.BackColor = System.Drawing.Color.CadetBlue;
-            this.na.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.na.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.na.ForeColor = System.Drawing.Color.Blue;
-            this.na.Location = new System.Drawing.Point(19, 41);
-            this.na.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.na.Name = "na";
-            this.na.Size = new System.Drawing.Size(524, 27);
-            this.na.TabIndex = 2;
-            this.na.Text = "Name :";
+            this.label.BackColor = System.Drawing.Color.CadetBlue;
+            this.label.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.label.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.Blue;
+            this.label.Location = new System.Drawing.Point(19, 41);
+            this.label.Margin = new System.Windows.Forms.Padding(2);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(524, 27);
+            this.label.TabIndex = 2;
+            this.label.Text = "Name :";
             // 
             // em
             // 
@@ -417,7 +399,7 @@
             this.em.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.em.ForeColor = System.Drawing.Color.Blue;
             this.em.Location = new System.Drawing.Point(19, 136);
-            this.em.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.em.Margin = new System.Windows.Forms.Padding(2);
             this.em.Name = "em";
             this.em.Size = new System.Drawing.Size(524, 27);
             this.em.TabIndex = 1;
@@ -430,7 +412,7 @@
             this.reg.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reg.ForeColor = System.Drawing.Color.Blue;
             this.reg.Location = new System.Drawing.Point(19, 90);
-            this.reg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reg.Margin = new System.Windows.Forms.Padding(2);
             this.reg.Name = "reg";
             this.reg.Size = new System.Drawing.Size(524, 27);
             this.reg.TabIndex = 0;
@@ -441,7 +423,7 @@
             this.panel5.BackColor = System.Drawing.Color.CadetBlue;
             this.panel5.Controls.Add(this.course);
             this.panel5.Location = new System.Drawing.Point(260, 509);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(566, 253);
             this.panel5.TabIndex = 11;
@@ -453,7 +435,7 @@
             this.course.Font = new System.Drawing.Font("Elephant", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.course.ForeColor = System.Drawing.Color.Lavender;
             this.course.Location = new System.Drawing.Point(19, 17);
-            this.course.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.course.Margin = new System.Windows.Forms.Padding(2);
             this.course.Name = "course";
             this.course.Size = new System.Drawing.Size(129, 36);
             this.course.TabIndex = 0;
@@ -464,7 +446,7 @@
             this.panel6.BackColor = System.Drawing.Color.Azure;
             this.panel6.Controls.Add(this.textBox1);
             this.panel6.Location = new System.Drawing.Point(836, 368);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(303, 394);
             this.panel6.TabIndex = 12;
@@ -476,11 +458,33 @@
             this.textBox1.Font = new System.Drawing.Font("Elephant", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Blue;
             this.textBox1.Location = new System.Drawing.Point(12, 18);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(278, 36);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Personal Note :";
+            // 
+            // id
+            // 
+            this.id.AutoSize = true;
+            this.id.Font = new System.Drawing.Font("Elephant", 10.125F);
+            this.id.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.id.Location = new System.Drawing.Point(168, 88);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(63, 27);
+            this.id.TabIndex = 5;
+            this.id.Text = "hello";
+            // 
+            // na
+            // 
+            this.na.AutoSize = true;
+            this.na.Font = new System.Drawing.Font("Elephant", 10.125F);
+            this.na.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.na.Location = new System.Drawing.Point(96, 40);
+            this.na.Name = "na";
+            this.na.Size = new System.Drawing.Size(63, 27);
+            this.na.TabIndex = 6;
+            this.na.Text = "hello";
             // 
             // Teacher_Dashboard
             // 
@@ -526,8 +530,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label name;
-        private System.Windows.Forms.Label password;
-        private System.Windows.Forms.Label Registration;
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.Button result;
         private System.Windows.Forms.Panel panel1;
@@ -551,10 +553,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox reg;
-        private System.Windows.Forms.TextBox na;
+        private System.Windows.Forms.TextBox label;
         private System.Windows.Forms.TextBox em;
         private System.Windows.Forms.TextBox course;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label na;
+        private System.Windows.Forms.Label id;
     }
 }

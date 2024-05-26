@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Edu_Portal
 {
-    public partial class Form1 : Form
+    public partial class Password_Change : Form
     {
-        public Form1()
+        public Password_Change()
         {
             InitializeComponent();
         }

@@ -19,12 +19,9 @@ namespace Edu_Portal
 
         private void Teacher_Dashboard_Load(object sender, EventArgs e)
         {
-            //name.Text = User_Session.name;
-            //Registration.Text = User_Session.registration_number;
-            //Email.Text = User_Session.email;
-            MessageBox.Show(User_Session.teaching_subject);
-            MessageBox.Show(User_Session.email);
-            password.Text = User_Session.teaching_subject;
+            na.Text = User_Session.name;
+            id.Text = User_Session.registration_number;
+            Email.Text = User_Session.email;
         }
 
         private void name_Click(object sender, EventArgs e)
@@ -78,5 +75,16 @@ namespace Edu_Portal
             calendar.BackColor = Color.CadetBlue;
         }
 
+        private void setting_Click(object sender, EventArgs e)
+        {
+            Teacher_Profile profile = new Teacher_Profile();
+            profile.Show();
+        }
+
+        private void gpa_Click(object sender, EventArgs e)
+        {
+            GPA_calculator gPA = new GPA_calculator();
+            gPA.Show();
+        }
     }
 }
