@@ -2,7 +2,9 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 
@@ -152,6 +154,7 @@ namespace Edu_Portal
         public string sign_up()
         {
 
+           // MessageBox.Show(teaching_subject);
             string placeholder;
             if (is_student)  //so i know where to put the credentials i recieve
             {
@@ -159,7 +162,7 @@ namespace Edu_Portal
             }
             else
             {
-                placeholder = "Teacher_Personal_Info";
+                placeholder = "Teacher_Personal_Inform";
             }
 
             try
@@ -210,7 +213,7 @@ namespace Edu_Portal
 
                         if (!student(RegistrationNumber))
                         {
-                            string teacher_query = $"UPDATE Teacher_Personal_Info SET Teaching_Subject = @Teaching_Subject WHERE Registration_Number = @Registration_Number";
+                            string teacher_query = $"UPDATE Teacher_Personal_Inform SET Teaching_Subject = @Teaching_Subject WHERE Registration_Number = @Registration_Number";
                             SqlCommand teacher_ = new SqlCommand(teacher_query, connection);
                             teacher_.Parameters.AddWithValue("@Teaching_Subject", teaching_subject);
                             teacher_.Parameters.AddWithValue("@Registration_Number", RegistrationNumber);
@@ -219,7 +222,7 @@ namespace Edu_Portal
                             teacher_.ExecuteNonQuery();
                         }
                         put_in_static(placeholder, Password, RegistrationNumber);
-                        //MessageBox.Show("your grade is:" + User_Session.grade);
+                       // MessageBox.Show("your subj is is:" + User_Session.teaching_subject);
 
                         return "OK";  
 
@@ -242,7 +245,7 @@ namespace Edu_Portal
             }
             else if (!student(RegistrationNumber))
             {
-                placeholder = "Teacher_Personal_Info";
+                placeholder = "Teacher_Personal_Inform";
             }
 
             try
@@ -420,12 +423,32 @@ namespace Edu_Portal
 
             subjects[1] = Subject.fetch_data("Math");
             subjects[2] = Subject.fetch_data("English");
-            
+        }
 
-        
+        public DataTable materials = new DataTable();
+        public void Materials()
+        {
+          //  MessageBox.Show("Successful");
+            try { SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable tables = new DataTable();
+            //basically gets the materials of the guy's grade
+            var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                adapter = new SqlDataAdapter($@"SELECT Teacher_Name, Grade, Materials_Link, Subject_Name FROM Materials_Table WHERE Grade = {User_Session.grade}", connection);
+                adapter.Fill(materials);
+            } }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+
+           // MessageBox.Show("Successful");
+            
         }
     }
-
     class Teacher : User
     {
         //this is the data where we are going to insert the grades in, it reflects the actual database
@@ -434,7 +457,6 @@ namespace Edu_Portal
         //static variables from User_Session Class
         string grade = User_Session.grade;
         string subject = User_Session.teaching_subject;
-
         public override void open_dashboard()
         {
             Teacher_Dashboard teacher = new Teacher_Dashboard();
@@ -475,6 +497,37 @@ namespace Edu_Portal
           
         }
 
+
+        public void Materials(string material)
+        {
+            try
+            {
+
+                var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = $"INSERT into Materials_Table (Teacher_Name, Grade, Subject_Name, Materials_Link) VALUES (@T_Name, @G, @S_Name, @M_Link)";
+                    using (SqlCommand get_cmd = new SqlCommand(query, conn))
+                    {
+                        get_cmd.Parameters.AddWithValue("@T_Name", User_Session.name);
+                        get_cmd.Parameters.AddWithValue("@G", User_Session.grade);
+                        get_cmd.Parameters.AddWithValue("@S_Name", User_Session.teaching_subject);
+                        get_cmd.Parameters.AddWithValue("@M_Link", material);
+                        get_cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Link has been added!");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 
 
@@ -485,7 +538,7 @@ namespace Edu_Portal
         {
             // we need to check if that user is a student or teacher to search in the right DB
            // MessageBox.Show(User_Session.registration_number);
-            string placeholder = student(User_Session.registration_number) ? "Student_Personal_Info" : "Teacher_Personal_Info";
+            string placeholder = student(User_Session.registration_number) ? "Student_Personal_Info" : "Teacher_Personal_Inform";
 
 
             //we need to check if the password he typed was legit or not:
@@ -515,7 +568,7 @@ namespace Edu_Portal
         }
        public void change_email(string new_email)
             {
-            string placeholder = student(User_Session.registration_number) ? "Student_Personal_Info" : "Teacher_Personal_Info";
+            string placeholder = student(User_Session.registration_number) ? "Student_Personal_Info" : "Teacher_Personal_Inform";
 
 
             string new_query = $"UPDATE {placeholder} SET Email = @Email WHERE Registration_Number = @Registration_Number";
@@ -535,6 +588,12 @@ namespace Edu_Portal
         }
 
         }
+
+
+    class Adminstration
+    {
+       
+    }
 
 
 

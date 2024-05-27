@@ -42,40 +42,40 @@
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.panel3 = new System.Windows.Forms.Panel();
             this.quote = new System.Windows.Forms.TextBox();
-            this.study = new System.Windows.Forms.PictureBox();
             this.name = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.calc = new System.Windows.Forms.PictureBox();
             this.gpaaa = new System.Windows.Forms.Button();
-            this.set_icon = new System.Windows.Forms.PictureBox();
-            this.result_icon = new System.Windows.Forms.PictureBox();
-            this.mat = new System.Windows.Forms.PictureBox();
             this.settingss = new System.Windows.Forms.Button();
             this.materialll = new System.Windows.Forms.Button();
             this.res = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.study = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.calc = new System.Windows.Forms.PictureBox();
+            this.set_icon = new System.Windows.Forms.PictureBox();
+            this.result_icon = new System.Windows.Forms.PictureBox();
+            this.mat = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.study)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.study)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.set_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.result_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mat)).BeginInit();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -83,7 +83,7 @@
             this.panel6.BackColor = System.Drawing.Color.Azure;
             this.panel6.Controls.Add(this.label2);
             this.panel6.Location = new System.Drawing.Point(826, 358);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(303, 371);
             this.panel6.TabIndex = 33;
@@ -96,9 +96,9 @@
             this.label2.Location = new System.Drawing.Point(19, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 37);
+            this.label2.Size = new System.Drawing.Size(249, 37);
             this.label2.TabIndex = 0;
-            this.label2.Text = "To-Do List :";
+            this.label2.Text = "Quote of the Day";
             // 
             // panel5
             // 
@@ -107,7 +107,7 @@
             this.panel5.Controls.Add(this.lstDisplay);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Location = new System.Drawing.Point(238, 498);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(566, 230);
             this.panel5.TabIndex = 32;
@@ -116,7 +116,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(260, 35);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(58, 26);
             this.button1.TabIndex = 2;
@@ -131,7 +131,7 @@
             this.lstDisplay.FormattingEnabled = true;
             this.lstDisplay.ItemHeight = 33;
             this.lstDisplay.Location = new System.Drawing.Point(19, 66);
-            this.lstDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.lstDisplay.Name = "lstDisplay";
             this.lstDisplay.Size = new System.Drawing.Size(524, 136);
             this.lstDisplay.TabIndex = 1;
@@ -157,7 +157,7 @@
             this.panel4.Controls.Add(this.em);
             this.panel4.Controls.Add(this.reg);
             this.panel4.Location = new System.Drawing.Point(238, 274);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(566, 194);
             this.panel4.TabIndex = 31;
@@ -169,7 +169,7 @@
             this.Gra.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gra.ForeColor = System.Drawing.Color.Blue;
             this.Gra.Location = new System.Drawing.Point(19, 58);
-            this.Gra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gra.Margin = new System.Windows.Forms.Padding(2);
             this.Gra.Name = "Gra";
             this.Gra.Size = new System.Drawing.Size(524, 27);
             this.Gra.TabIndex = 3;
@@ -182,7 +182,7 @@
             this.na.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.na.ForeColor = System.Drawing.Color.Blue;
             this.na.Location = new System.Drawing.Point(19, 17);
-            this.na.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.na.Margin = new System.Windows.Forms.Padding(2);
             this.na.Name = "na";
             this.na.Size = new System.Drawing.Size(524, 27);
             this.na.TabIndex = 2;
@@ -195,7 +195,7 @@
             this.em.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.em.ForeColor = System.Drawing.Color.Blue;
             this.em.Location = new System.Drawing.Point(19, 142);
-            this.em.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.em.Margin = new System.Windows.Forms.Padding(2);
             this.em.Name = "em";
             this.em.Size = new System.Drawing.Size(524, 27);
             this.em.TabIndex = 1;
@@ -208,7 +208,7 @@
             this.reg.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reg.ForeColor = System.Drawing.Color.Blue;
             this.reg.Location = new System.Drawing.Point(19, 102);
-            this.reg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reg.Margin = new System.Windows.Forms.Padding(2);
             this.reg.Name = "reg";
             this.reg.Size = new System.Drawing.Size(524, 27);
             this.reg.TabIndex = 0;
@@ -220,7 +220,7 @@
             this.calendar.Font = new System.Drawing.Font("Elephant", 7.874999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calendar.ForeColor = System.Drawing.Color.Black;
             this.calendar.Location = new System.Drawing.Point(826, 86);
-            this.calendar.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.calendar.Margin = new System.Windows.Forms.Padding(7);
             this.calendar.Name = "calendar";
             this.calendar.TabIndex = 30;
             this.calendar.TitleBackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -233,7 +233,7 @@
             this.panel3.Controls.Add(this.name);
             this.panel3.Controls.Add(this.welcome);
             this.panel3.Location = new System.Drawing.Point(238, 86);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(566, 159);
             this.panel3.TabIndex = 29;
@@ -245,22 +245,11 @@
             this.quote.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quote.ForeColor = System.Drawing.Color.Lavender;
             this.quote.Location = new System.Drawing.Point(74, 86);
-            this.quote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quote.Margin = new System.Windows.Forms.Padding(2);
             this.quote.Name = "quote";
             this.quote.Size = new System.Drawing.Size(213, 27);
             this.quote.TabIndex = 3;
             this.quote.Text = "STAY UPDATED !";
-            // 
-            // study
-            // 
-            this.study.Image = global::Edu_Portal.Properties.Resources.educational_tool;
-            this.study.Location = new System.Drawing.Point(382, 11);
-            this.study.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.study.Name = "study";
-            this.study.Size = new System.Drawing.Size(160, 134);
-            this.study.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.study.TabIndex = 2;
-            this.study.TabStop = false;
             // 
             // name
             // 
@@ -280,7 +269,7 @@
             this.welcome.Font = new System.Drawing.Font("Elephant", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcome.ForeColor = System.Drawing.Color.Blue;
             this.welcome.Location = new System.Drawing.Point(34, 34);
-            this.welcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.welcome.Margin = new System.Windows.Forms.Padding(2);
             this.welcome.Name = "welcome";
             this.welcome.Size = new System.Drawing.Size(308, 42);
             this.welcome.TabIndex = 0;
@@ -291,7 +280,7 @@
             this.panel2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(212, -65);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(926, 50);
             this.panel2.TabIndex = 28;
@@ -324,29 +313,17 @@
             this.panel1.Controls.Add(this.title);
             this.panel1.Font = new System.Drawing.Font("Elephant", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(229, 728);
             this.panel1.TabIndex = 27;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Edu_Portal.Properties.Resources.log_out;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 640);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(59, 45);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // logout
             // 
             this.logout.BackColor = System.Drawing.Color.LightSteelBlue;
             this.logout.ForeColor = System.Drawing.Color.Navy;
             this.logout.Location = new System.Drawing.Point(16, 640);
-            this.logout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logout.Margin = new System.Windows.Forms.Padding(2);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(182, 45);
             this.logout.TabIndex = 15;
@@ -355,28 +332,6 @@
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(124, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
-            // calc
-            // 
-            this.calc.Image = global::Edu_Portal.Properties.Resources.clipboard;
-            this.calc.Location = new System.Drawing.Point(17, 362);
-            this.calc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.calc.Name = "calc";
-            this.calc.Size = new System.Drawing.Size(59, 45);
-            this.calc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.calc.TabIndex = 9;
-            this.calc.TabStop = false;
-            // 
             // gpaaa
             // 
             this.gpaaa.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -384,7 +339,7 @@
             this.gpaaa.ForeColor = System.Drawing.Color.Navy;
             this.gpaaa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.gpaaa.Location = new System.Drawing.Point(17, 362);
-            this.gpaaa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpaaa.Margin = new System.Windows.Forms.Padding(2);
             this.gpaaa.Name = "gpaaa";
             this.gpaaa.Size = new System.Drawing.Size(182, 45);
             this.gpaaa.TabIndex = 9;
@@ -393,46 +348,13 @@
             this.gpaaa.UseVisualStyleBackColor = false;
             this.gpaaa.Click += new System.EventHandler(this.gpaaa_Click);
             // 
-            // set_icon
-            // 
-            this.set_icon.Image = global::Edu_Portal.Properties.Resources.settings;
-            this.set_icon.Location = new System.Drawing.Point(17, 428);
-            this.set_icon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.set_icon.Name = "set_icon";
-            this.set_icon.Size = new System.Drawing.Size(59, 45);
-            this.set_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.set_icon.TabIndex = 7;
-            this.set_icon.TabStop = false;
-            // 
-            // result_icon
-            // 
-            this.result_icon.Image = global::Edu_Portal.Properties.Resources.results;
-            this.result_icon.Location = new System.Drawing.Point(17, 298);
-            this.result_icon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.result_icon.Name = "result_icon";
-            this.result_icon.Size = new System.Drawing.Size(59, 45);
-            this.result_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.result_icon.TabIndex = 7;
-            this.result_icon.TabStop = false;
-            // 
-            // mat
-            // 
-            this.mat.Image = global::Edu_Portal.Properties.Resources.material;
-            this.mat.Location = new System.Drawing.Point(17, 231);
-            this.mat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.mat.Name = "mat";
-            this.mat.Size = new System.Drawing.Size(59, 45);
-            this.mat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.mat.TabIndex = 11;
-            this.mat.TabStop = false;
-            // 
             // settingss
             // 
             this.settingss.BackColor = System.Drawing.Color.LightSteelBlue;
             this.settingss.ForeColor = System.Drawing.Color.Navy;
             this.settingss.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingss.Location = new System.Drawing.Point(17, 428);
-            this.settingss.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.settingss.Margin = new System.Windows.Forms.Padding(2);
             this.settingss.Name = "settingss";
             this.settingss.Size = new System.Drawing.Size(182, 45);
             this.settingss.TabIndex = 10;
@@ -446,13 +368,14 @@
             this.materialll.BackColor = System.Drawing.Color.LightSteelBlue;
             this.materialll.ForeColor = System.Drawing.Color.Navy;
             this.materialll.Location = new System.Drawing.Point(17, 231);
-            this.materialll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.materialll.Margin = new System.Windows.Forms.Padding(2);
             this.materialll.Name = "materialll";
             this.materialll.Size = new System.Drawing.Size(182, 45);
             this.materialll.TabIndex = 9;
             this.materialll.Text = "Materials";
             this.materialll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.materialll.UseVisualStyleBackColor = false;
+            this.materialll.Click += new System.EventHandler(this.materialll_Click);
             // 
             // res
             // 
@@ -476,7 +399,7 @@
             this.title.Font = new System.Drawing.Font("Elephant", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.ForeColor = System.Drawing.Color.Navy;
             this.title.Location = new System.Drawing.Point(17, 146);
-            this.title.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.title.Margin = new System.Windows.Forms.Padding(2);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(182, 36);
             this.title.TabIndex = 8;
@@ -488,7 +411,7 @@
             this.panel7.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel7.Controls.Add(this.label3);
             this.panel7.Location = new System.Drawing.Point(238, 10);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(890, 53);
             this.panel7.TabIndex = 34;
@@ -504,6 +427,84 @@
             this.label3.Size = new System.Drawing.Size(304, 37);
             this.label3.TabIndex = 0;
             this.label3.Text = "Student Dashboard :";
+            // 
+            // study
+            // 
+            this.study.Image = global::Edu_Portal.Properties.Resources.educational_tool;
+            this.study.Location = new System.Drawing.Point(382, 11);
+            this.study.Margin = new System.Windows.Forms.Padding(2);
+            this.study.Name = "study";
+            this.study.Size = new System.Drawing.Size(160, 134);
+            this.study.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.study.TabIndex = 2;
+            this.study.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Edu_Portal.Properties.Resources.log_out;
+            this.pictureBox2.Location = new System.Drawing.Point(16, 640);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(59, 45);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Edu_Portal.Properties.Resources.graduation_cap_3074078;
+            this.pictureBox1.Location = new System.Drawing.Point(43, 16);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(124, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // calc
+            // 
+            this.calc.Image = global::Edu_Portal.Properties.Resources.clipboard;
+            this.calc.Location = new System.Drawing.Point(17, 362);
+            this.calc.Margin = new System.Windows.Forms.Padding(2);
+            this.calc.Name = "calc";
+            this.calc.Size = new System.Drawing.Size(59, 45);
+            this.calc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.calc.TabIndex = 9;
+            this.calc.TabStop = false;
+            // 
+            // set_icon
+            // 
+            this.set_icon.Image = global::Edu_Portal.Properties.Resources.settings;
+            this.set_icon.Location = new System.Drawing.Point(17, 428);
+            this.set_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.set_icon.Name = "set_icon";
+            this.set_icon.Size = new System.Drawing.Size(59, 45);
+            this.set_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.set_icon.TabIndex = 7;
+            this.set_icon.TabStop = false;
+            // 
+            // result_icon
+            // 
+            this.result_icon.Image = global::Edu_Portal.Properties.Resources.results;
+            this.result_icon.Location = new System.Drawing.Point(17, 298);
+            this.result_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.result_icon.Name = "result_icon";
+            this.result_icon.Size = new System.Drawing.Size(59, 45);
+            this.result_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.result_icon.TabIndex = 7;
+            this.result_icon.TabStop = false;
+            // 
+            // mat
+            // 
+            this.mat.Image = global::Edu_Portal.Properties.Resources.material;
+            this.mat.Location = new System.Drawing.Point(17, 231);
+            this.mat.Margin = new System.Windows.Forms.Padding(2);
+            this.mat.Name = "mat";
+            this.mat.Size = new System.Drawing.Size(59, 45);
+            this.mat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mat.TabIndex = 11;
+            this.mat.TabStop = false;
             // 
             // Student_Dashboard
             // 
@@ -529,19 +530,19 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.study)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.study)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.set_icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.result_icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mat)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }

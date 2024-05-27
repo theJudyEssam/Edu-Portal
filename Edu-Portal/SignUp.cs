@@ -46,7 +46,7 @@ namespace Edu_Portal
             bool password_flag = false;
             bool ID_flag = false;
 
-            name_flag = name.Any(char.IsDigit);
+            name_flag = name.Any(char.IsDigit)?false:true;
             var pattern = @"^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
             var regex = new Regex(pattern);
             email_flag = regex.IsMatch(email);
@@ -56,6 +56,8 @@ namespace Edu_Portal
 
 
             return name_flag && email_flag && password_flag && ID_flag;
+
+           // return true;
         }
         public void button1_Click(object sender, EventArgs e)
         {
@@ -71,6 +73,7 @@ namespace Edu_Portal
             if (!is_student)
             {
                 teaching_subject = Subject_ComboBox.Text;
+                MessageBox.Show(teaching_subject);
             }
 
 

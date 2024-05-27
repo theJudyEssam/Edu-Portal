@@ -101,5 +101,12 @@ namespace Edu_Portal
             sign.Show();
             this.Hide();
         }
+
+        private void material_Click(object sender, EventArgs e)
+        {
+            Teacher_Materials material = new Teacher_Materials();
+            material.Show();
+            this.Hide();
+        }
     }
 }

@@ -132,5 +132,12 @@ namespace Edu_Portal
                 }
             }
         }
+
+        private void materialll_Click(object sender, EventArgs e)
+        {
+            Student_Materials materials = new Student_Materials();
+            materials.Show();
+            this.Hide();
+        }
     }
 }
