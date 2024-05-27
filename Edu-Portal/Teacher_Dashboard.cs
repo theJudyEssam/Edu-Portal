@@ -8,20 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Edu_Portal
 {
     public partial class Teacher_Dashboard : Form
     {
+        private List<string> quotes;
+        private Random random;
         public Teacher_Dashboard()
         {
             InitializeComponent();
-        }
+
+            
+            quotes = new List<string>
+            {
+                "The only limit to our realization of tomorrow is our doubts of today.",
+                "The purpose of our lives is to be happy.",
+                "Life is what happens when you're busy making other plans.",
+                "Get busy living or get busy dying.",
+                "You have within you right now, everything you need to deal with whatever the world can throw at you."
+            };
+
+            
+            random = new Random();
+    }
 
         private void Teacher_Dashboard_Load(object sender, EventArgs e)
         {
             na.Text = User_Session.name;
             id.Text = User_Session.registration_number;
-            Email.Text = User_Session.email;
+            mail.Text = User_Session.email;
         }
 
         private void name_Click(object sender, EventArgs e)
@@ -107,6 +123,12 @@ namespace Edu_Portal
             Teacher_Materials material = new Teacher_Materials();
             material.Show();
             this.Hide();
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            int index = random.Next(quotes.Count);
+            quoteLabel.Text = quotes[index];
         }
     }
 }

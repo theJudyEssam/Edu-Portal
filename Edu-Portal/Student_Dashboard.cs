@@ -13,9 +13,23 @@ namespace Edu_Portal
 {
     public partial class Student_Dashboard : Form
     {
+        private List<string> quotes;
+        private Random random;
         public Student_Dashboard()
         {
             InitializeComponent();
+
+            quotes = new List<string>
+            {
+                "The only limit to our realization of tomorrow is our doubts of today.",
+                "The purpose of our lives is to be happy.",
+                "Life is what happens when you're busy making other plans.",
+                "Get busy living or get busy dying.",
+                "You have within you right now, everything you need to deal with whatever the world can throw at you."
+            };
+
+
+            random = new Random();
         }
 
         private void password_Click(object sender, EventArgs e)
@@ -25,11 +39,10 @@ namespace Edu_Portal
 
         private void Student_Dashboard_Load(object sender, EventArgs e)
         {
-            //name.Text = "Name: " + User_Session.name;
-            //email.Text ="Email: " +  User_Session.email;
-            //password.Text = "Password: " + User_Session.password;
-            //registration_num.Text = "Registration Number: "+ User_Session.registration_number;
-            //grade.Text = "Grade: "+User_Session.grade;
+            n.Text = User_Session.name;
+            g.Text = User_Session.grade;
+            r.Text = User_Session.registration_number;
+            ma.Text = User_Session.email;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,6 +151,12 @@ namespace Edu_Portal
             Student_Materials materials = new Student_Materials();
             materials.Show();
             this.Hide();
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            int index = random.Next(quotes.Count);
+            quoteLabel.Text = quotes[index];
         }
     }
 }
