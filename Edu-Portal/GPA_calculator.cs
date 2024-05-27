@@ -146,5 +146,11 @@ namespace Edu_Portal
            Authenticate.go_back();
            this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Authenticate.go_back();
+            this.Hide();
+        }
     }
 }

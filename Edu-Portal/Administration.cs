@@ -26,7 +26,28 @@ namespace Edu_Portal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Student_Administrationcs student = new Student_Administrationcs();
+            student.Show();
+            this.Hide();
+        }
 
+        private void Administration_Load(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Teacher_Administration teacher = new Teacher_Administration();
+            teacher.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SignUp s = new SignUp();
+            s.Show();
+            this.Hide();
         }
     }
 }

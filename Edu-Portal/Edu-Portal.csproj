@@ -79,6 +79,12 @@
     <Compile Include="Password Change.Designer.cs">
       <DependentUpon>Password Change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student_Administrationcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student_Administrationcs.Designer.cs">
+      <DependentUpon>Student_Administrationcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student_Materials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="Student_Results.Designer.cs">
       <DependentUpon>Student_Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher_Administration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher_Administration.Designer.cs">
+      <DependentUpon>Teacher_Administration.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher_Dashboard.cs">
       <SubType>Form</SubType>
@@ -172,6 +184,9 @@
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Student_Administrationcs.resx">
+      <DependentUpon>Student_Administrationcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student_Dashboard.resx">
       <DependentUpon>Student_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student_Results.resx">
       <DependentUpon>Student_Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher_Administration.resx">
+      <DependentUpon>Teacher_Administration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher_Dashboard.resx">
       <DependentUpon>Teacher_Dashboard.cs</DependentUpon>

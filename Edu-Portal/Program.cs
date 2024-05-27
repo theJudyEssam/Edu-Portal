@@ -592,7 +592,52 @@ namespace Edu_Portal
 
     class Adminstration
     {
-       
+       public DataTable Get_Data(string placeholder)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    adapter = new SqlDataAdapter($@"SELECT Registration_Number, Name, Grade FROM {placeholder}", connection);
+                    adapter.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return dt;
+        }
+
+        public void Delete_Data(string registration, string placeholder)
+        {
+            try
+            {
+               // SqlDataAdapter adapter = new SqlDataAdapter();
+                var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = $"DELETE FROM {placeholder} WHERE Registration_Number = @Registration_Number";
+                    SqlCommand cmd = new SqlCommand(@query, connection );
+                    cmd.Parameters.AddWithValue("@Registration_Number", registration);
+                    cmd.ExecuteNonQuery();
+                 //   adapter = new SqlDataAdapter($@"SELECT Registration_Number, Name, Grade FROM {placeholder}", connection);
+                 //  adapter.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 
 

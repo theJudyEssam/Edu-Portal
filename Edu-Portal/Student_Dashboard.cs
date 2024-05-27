@@ -39,10 +39,52 @@ namespace Edu_Portal
 
         private void Student_Dashboard_Load(object sender, EventArgs e)
         {
+
             n.Text = User_Session.name;
             g.Text = User_Session.grade;
             r.Text = User_Session.registration_number;
             ma.Text = User_Session.email;
+
+            string grade = User_Session.grade;
+            if (grade == "11")
+            {
+                string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(documentsPath, "Data_11.txt");
+
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    lstDisplay.Items.Clear();
+                    foreach (string line in lines)
+                    {
+                        lstDisplay.Items.Add(line);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File not found!");
+                }
+            }
+
+            if (grade == "12")
+            {
+                string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(documentsPath, "Data_12.txt");
+
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    lstDisplay.Items.Clear();
+                    foreach (string line in lines)
+                    {
+                        lstDisplay.Items.Add(line);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File not found!");
+                }
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
