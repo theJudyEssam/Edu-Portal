@@ -36,8 +36,13 @@ namespace Edu_Portal
                 MessageBox.Show("Password Successfully Changed!");
                // MessageBox.Show("Your new Password is: " + User_Session.password);
             }
+            else
+            {
+                MessageBox.Show("Please Retry again.");
+            }
             new_password.Text = "";
-            n.Text = "";
+            old_password.Text = "";
+            
 
         }
 

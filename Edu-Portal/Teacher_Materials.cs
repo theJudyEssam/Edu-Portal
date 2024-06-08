@@ -30,5 +30,10 @@ namespace Edu_Portal
             Authenticate.go_back();
             this.Hide();
         }
+
+        private void Teacher_Materials_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

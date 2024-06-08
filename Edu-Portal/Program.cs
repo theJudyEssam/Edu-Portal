@@ -116,6 +116,7 @@ namespace Edu_Portal
 
                     using (SqlDataReader reader = get_cmd.ExecuteReader())
                     {
+
                         if (reader.Read())
                         {
 
@@ -164,6 +165,8 @@ namespace Edu_Portal
             {
                 placeholder = "Teacher_Personal_Inform";
             }
+
+            
 
             try
             {
@@ -391,7 +394,7 @@ namespace Edu_Portal
 
         }
     }
-    abstract class User : Authenticate
+    abstract class User 
     {
         public abstract void open_dashboard();
         public abstract void results();
@@ -429,8 +432,9 @@ namespace Edu_Portal
         public void Materials()
         {
           //  MessageBox.Show("Successful");
-            try { SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable tables = new DataTable();
+            try { 
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            //DataTable tables = new DataTable();
             //basically gets the materials of the guy's grade
             var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -476,24 +480,29 @@ namespace Edu_Portal
 
         public void Save_Data(string reg, string total_mark, string final_mark, string midterm, string assignments_mark)
         {
-            try {
 
+            // try {
+            MessageBox.Show(total_mark);
                 var connectionString = ConfigurationManager.ConnectionStrings["EduPortalDB"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = $"UPDATE Grade_{User_Session.grade} SET {User_Session.teaching_subject}_Total_Mark = {total_mark}, {User_Session.teaching_subject}_Final_Mark = {final_mark},  {User_Session.teaching_subject}_Midterm_Mark = {midterm}, {User_Session.teaching_subject}_Assignments_Mark = {assignments_mark} WHERE Registration_Number = @Registration_Number";
+                    string query = $"UPDATE Grade_{User_Session.grade} SET {User_Session.teaching_subject}_Total_Mark = @TotalMark, {User_Session.teaching_subject}_Final_Mark = @FinalMark,  {User_Session.teaching_subject}_Midterm_Mark = @MidtermMark, {User_Session.teaching_subject}_Assignments_Mark = @AssignmentsMark WHERE Registration_Number = @Registration_Number";
                     using(SqlCommand get_cmd = new SqlCommand(query, conn))
                     {
-                        get_cmd.Parameters.AddWithValue("@Registration_Number", reg);
-                        get_cmd.ExecuteNonQuery();
+                    get_cmd.Parameters.AddWithValue("@TotalMark", total_mark);
+                    get_cmd.Parameters.AddWithValue("@FinalMark", final_mark);
+                    get_cmd.Parameters.AddWithValue("@MidtermMark", midterm);
+                    get_cmd.Parameters.AddWithValue("@AssignmentsMark", assignments_mark);
+                    get_cmd.Parameters.AddWithValue("@Registration_Number", reg);
+                    get_cmd.ExecuteNonQuery();
                     }
                 }
 
-            } catch(Exception ex) {
+            //} catch(Exception ex) {
 
-                MessageBox.Show(ex.Message);
-            }
+            //    MessageBox.Show("An error occurred: "+ ex.Message);
+            //}
           
         }
 
@@ -560,7 +569,7 @@ namespace Edu_Portal
             }
 
             put_in_static(placeholder, new_password, User_Session.registration_number);
-
+            
 
 
 

@@ -55,16 +55,22 @@ namespace Edu_Portal
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string final_grade = Final_mark.Text;
-            string midterm_grade = Midterm_Mark.Text;
-            string assignments_grade = Assign_Mark.Text;
-
-
-            int f = string.IsNullOrEmpty(final_grade) ? 0 : int.Parse(final_grade);
-            int m = string.IsNullOrEmpty(midterm_grade) ? 0 :int.Parse(midterm_grade);
-            int a = string.IsNullOrEmpty(assignments_grade) ? 0: int.Parse(assignments_grade);
+           string final_grade = string.IsNullOrEmpty(Final_mark.Text) ? "U": Final_mark.Text; 
+           string midterm_grade = string.IsNullOrEmpty(Midterm_Mark.Text) ? "U" : Midterm_Mark.Text;
+           string assignments_grade = string.IsNullOrEmpty(Assign_Mark.Text) ? "U" : Assign_Mark.Text;
 
            
+
+           int f = final_grade == "U" || string.IsNullOrEmpty(midterm_grade) ? 0 : int.Parse(final_grade);
+           int m = (midterm_grade == "U" || string.IsNullOrEmpty(midterm_grade) )? 0 :int.Parse(midterm_grade);
+           int a = assignments_grade == "U" || string.IsNullOrEmpty(midterm_grade) ? 0: int.Parse(assignments_grade);
+
+
+            //MessageBox.Show($"{f}");
+            //MessageBox.Show($"{m}");
+            //MessageBox.Show($"{a}");
+
+
             if (f > 40 && m > 50 && a > 10)
             {
                 MessageBox.Show("Invalid Marks");
@@ -73,6 +79,10 @@ namespace Edu_Portal
             {
 
                 int total = f + m + a;
+                if(final_grade == "U" || midterm_grade == "U"|| assignments_grade == "U")
+                {
+                     total = 0;
+                }
                 string total_mark = Convert.ToString(total);
                 teacher.Save_Data(registration_name, total_mark, final_grade, midterm_grade, assignments_grade);
                 teacher.Student_Grades.Clear();

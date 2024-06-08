@@ -73,7 +73,7 @@ namespace Edu_Portal
             if (!is_student)
             {
                 teaching_subject = Subject_ComboBox.Text;
-                MessageBox.Show(teaching_subject);
+               // MessageBox.Show(teaching_subject);
             }
 
 

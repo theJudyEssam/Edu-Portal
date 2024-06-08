@@ -38,6 +38,7 @@ namespace Edu_Portal
             na.Text = User_Session.name;
             id.Text = User_Session.registration_number;
             mail.Text = User_Session.email;
+            grade.Text = User_Session.grade;
         }
 
         private void name_Click(object sender, EventArgs e)
@@ -129,6 +130,11 @@ namespace Edu_Portal
         {
             int index = random.Next(quotes.Count);
             quoteLabel.Text = quotes[index];
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

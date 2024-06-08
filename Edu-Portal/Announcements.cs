@@ -52,5 +52,12 @@ namespace Edu_Portal
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Administration administration = new Administration();
+            administration.Show();
+            this.Hide();
+        }
     }
 }

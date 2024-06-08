@@ -70,9 +70,9 @@
             this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label2.Location = new System.Drawing.Point(72, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 20);
+            this.label2.Size = new System.Drawing.Size(151, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Insert your Google Drive link:";
+            this.label2.Text = "Insert your link here:";
             // 
             // button1
             // 
@@ -110,6 +110,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Teacher_Materials";
             this.Text = "Teacher_Materials";
+            this.Load += new System.EventHandler(this.Teacher_Materials_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
