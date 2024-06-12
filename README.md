@@ -78,7 +78,7 @@ Contains methods used polymorphically to open the correct dashboard and results 
 
 ### TEACHER
 - Defines the grade and subject the teacher will teach.
-- Inputs student grades, adds study material, and sends both to the database.
+- Inputs student grades, adds study material and sends both to the database.
 - Methods `dashboard` and `result` open the teacher version of these pages.
 
 ### STUDENT
@@ -97,5 +97,21 @@ Defines every grade in a student's assessment and sends these grades to the data
 Final Class Diagram:
 
 ![image](https://github.com/theJudyEssam/Edu-Portal/assets/166221535/1a9a9542-e307-4638-9b37-46442784b2e4)
+
+
+#Some snapshots of the interface
+
+##Sign-up / Log-in
+
+![image](https://github.com/theJudyEssam/Edu-Portal/assets/166221535/53dd9703-0cb2-4f0b-99a2-1899a6ba799a)
+
+
+##Dashboard
+
+![image](https://github.com/theJudyEssam/Edu-Portal/assets/166221535/629de6ab-b99e-48b1-8ec8-9f17c348a45c)
+
+
+
+###README written by Yara Adel Khedr
 
 
