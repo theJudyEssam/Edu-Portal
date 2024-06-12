@@ -1,27 +1,27 @@
-### Eduportal: your gateway to knowledge.
+# Eduportal: your gateway to knowledge.
 
 _The educational portal is created to enhance and facilitate interaction and collaboration between students and teachers. Its purpose is to serve as a gateway for students and teachers to have better access to and utilization of grades and educational materials. Key features include course management, assessment management, and user profile._
 
-## Functional Requirements:
+# Functional Requirements:
 
- # 1. User Authentication and Authorization:
+ ## 1. User Authentication and Authorization:
 
    - Sign up: Students and teachers create accounts with the necessary information required, and then data validation occurs to ensure the data isn’t similar to a previously registered user.
 
-{ 
-        ◦ Name 
-        ◦ Email
-        ◦ Registration Number (starts with a 1 if it’s a teacher, and 2 if it’s a student)
-        ◦ Password
-        ◦ User Role (student or teacher, as each has different functionalities that they are able to access)
-}
+    { 
+            ◦ Name 
+            ◦ Email
+            ◦ Registration Number (starts with a 1 if it’s a teacher, and 2 if it’s a student)
+            ◦ Password
+            ◦ User Role (student or teacher, as each has different functionalities that they are able to access)
+    }
 
   - Login/Logout: Students and teachers log in using unique credentials as well as logout from their accounts.
 
-{
-        ◦ Registration Number
-        ◦ Password 
-} 
+        {
+                ◦ Registration Number
+                ◦ Password 
+        } 
 
 -  Course Management:
 
@@ -54,36 +54,45 @@ _The educational portal is created to enhance and facilitate interaction and col
 
     • User Deletion: Admin can delete any student and teacher from the school’s database.
 
-# 2. Class Description:
+## 2. Class Description:
 
-  PROFILE:
-      Made for defining all the instance variables that are common between all users, as well as for their validation through their use in the signup WinForms page.
-  
-  AUTHENTICATION:
-      Used to identify if the registration number is that of a teacher or student, place the user information in static variables through the user_session class,   authenticate whether or not the user already exists in the database during signup, as well as authenticate if the information is correct during login. 
-  
-  SETTINGS:
-      Has methods that allow the user to change their email and password through the profile WinForms page.
-  
-  USER_SESSION:
-      Used to store all attribute values that were initially created and input in the profile class, however it makes them static in order for them to be used freely and         repetitively within all the other classes/WinForms pages.
+  ## Class Overview
 
-   USER:
-      Has methods that will then be used polymorphically in order to open the correct dashboard and results page depending on whether the user is a student or teacher.
+### PROFILE
+Defines all the instance variables common to all users and validates them during the signup process in the WinForms page.
 
-  TEACHER:
-      Made for defining which grade and subject the teacher is going to teach, as well as for inputting all student grades and adding study material and sending both to the database. In addition, methods dashboard and result open teacher version of these pages.
+### AUTHENTICATION
+- Identifies if the registration number belongs to a teacher or student.
+- Places user information into static variables through the `USER_SESSION` class.
+- Authenticates whether the user already exists in the database during signup.
+- Authenticates the correctness of user information during login.
 
-  STUDENT:
-      Made for keeping each student’s unique grades, as well as retrieving the material data from the database. In addition, methods dashboard and result open the student version of these pages.
+### SETTINGS
+Provides methods that allow users to change their email and password through the profile WinForms page.
 
-  SUBJECT:
-      Made for defining every single grade in a student’s assessment as well as sending these grades to the database.
+### USER_SESSION
+Stores all attribute values initially created and input in the `PROFILE` class. These values are made static for use throughout all other classes/WinForms pages.
 
-  ADMINSTRATION:
-      Made for defining the admin, and allows them to retrieve data about students and teachers, as well as delete any student/teacher from the database.
+### USER
+Contains methods used polymorphically to open the correct dashboard and results page depending on whether the user is a student or teacher.
 
+### TEACHER
+- Defines the grade and subject the teacher will teach.
+- Inputs student grades, adds study material, and sends both to the database.
+- Methods `dashboard` and `result` open the teacher version of these pages.
 
+### STUDENT
+- Keeps each student's unique grades.
+- Retrieves material data from the database.
+- Methods `dashboard` and `result` open the student version of these pages.
+
+### SUBJECT
+Defines every grade in a student's assessment and sends these grades to the database.
+
+### ADMINISTRATION
+- Defines the admin role.
+- Allows admins to retrieve data about students and teachers.
+- Enables admins to delete any student or teacher from the database.
 
 Final Class Diagram:
 
