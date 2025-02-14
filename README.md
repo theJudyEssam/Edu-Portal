@@ -1,4 +1,4 @@
-# Eduportal: your gateway to knowledge.
+# Eduportal: your gateway to knowledge
 
 _The educational portal is created to enhance and facilitate interaction and collaboration between students and teachers. Its purpose is to serve as a gateway for students and teachers to have better access to and utilization of grades and educational materials. Key features include course management, assessment management, and user profile._
 
